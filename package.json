@@ -1,0 +1,21 @@
+{
+  "name": "flash-cards-server",
+  "version": "0.0.1",
+  "description": "server and API",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github"
+  },
+  "keywords": [
+    "flashcards"
+  ],
+  "author": "raz kronenberg",
+  "license": "BSD-2-Clause"
+}
