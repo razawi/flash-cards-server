@@ -17,5 +17,10 @@
     "flashcards"
   ],
   "author": "raz kronenberg",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.14.0",
+    "body-parser": "~1.15.1",
+    "ejs": "~2.4.2"
+  }
 }
