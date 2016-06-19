@@ -10,9 +10,6 @@ a nodejs server with angular client to manage better flahs cards.
 ### What is this project?
 This project aims to provide a repository + server + web page + smartphone app for better flash crads.
 
-### what is this repo?
-this is the api server, client will be separated and linked in the future.
-
 ### Why do I need flash cards?
 flash cards are possibly the best way to memorize and learn new Information weather Its a definitions list for an academic course or a list of words for your vocabulary in your native language or a new foreign language.     
 
