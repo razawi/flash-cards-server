@@ -11,16 +11,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "github"
+    "url": "https://github.com/razawi/flash-cards-server"
   },
   "keywords": [
-    "flashcards"
+    "flashcards",
+    "betterFlashCards",
+    "node",
+    "express",
+    "server side"
   ],
   "author": "raz kronenberg",
   "license": "BSD-2-Clause",
   "dependencies": {
     "express": "~4.14.0",
     "body-parser": "~1.15.1",
-    "ejs": "~2.4.2"
+    "ejs": "~2.4.2",
+    "should": "~9.0.2",
+    "supertest": "~1.2.0",
+    "mongoose": "~4.5.1"
   }
 }

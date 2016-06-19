@@ -16,13 +16,14 @@ var port = process.env.PORT || 8888;
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
-  // res.header("Access-Control-Allow-Origin", "*"); TODO : is this line required ?
+  // res.header("Access-Control-Allow-Origin", "*"); TODO : removeme
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+
 var port = process.env.PORT || 8888;
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
