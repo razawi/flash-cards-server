@@ -1,14 +1,10 @@
 var express      = require('express');
-var app          = express();                
 var bodyParser   = require('body-parser');
 var path 	     = require('path');
 var configDB     = require('./config/database');
 
+var app = module.exports = express();
 var port = process.env.PORT || 8888;
-
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
 
 // app.use(cookieParser()); 
 // app.use(bodyParser.json()); 
@@ -34,14 +30,14 @@ app.listen(port);
 console.log('Server started on port ' + port);
 
 // ctach DB errors
-function mongoInit(){
-  console.log("mongo Init");
-  var db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'mongodb connection error:'));
-  db.once('open', function (callback) {
-    console.log("mongo connection open");
-  });
-}
+//function mongoInit(){
+//  console.log("mongo Init");
+//  var db = mongoose.connection;
+//  db.on('error', console.error.bind(console, 'mongodb connection error:'));
+//  db.once('open', function (callback) {
+//    console.log("mongo connection open");
+//  });
+//}
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -74,7 +70,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-module.exports = app;
+module.exports.app = app;
 
 exports.listen = function () {
   this.server.listen.apply(this.server, arguments);

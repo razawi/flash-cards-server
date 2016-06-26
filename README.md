@@ -47,6 +47,9 @@ The first data here which is used both as an example and for development purposs
 In the Palastinian dialect and the matching transcript in English and meaning in Hebrew. hopefully in the future more people will donate flash cards for
 any type of use. SAT words, foreign languages, academic classes terminology etc...
 
+### Future
+server should Implement the [Leitner system] (https://en.wikipedia.org/wiki/Leitner_system)
+
 ### Technology
 the server is a node js server using express 4.x for its routing and mongodb 3.x + mongoose 4.x for the data. cards data is managed
 by the dataController module while users data Is managed via passport.js.

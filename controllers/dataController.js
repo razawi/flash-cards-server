@@ -1,9 +1,8 @@
+//'use strict';
+
 var models = require('../models/models');
-
 var mongoose = require('mongoose');
-
 var fs = require ("fs"); // remove me
-
 var curricula = models.Curricula;
 var category = models.Subcategory;
 var card = models.Card;

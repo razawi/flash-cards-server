@@ -1,4 +1,3 @@
-// TODO gulp on grunt. some Devops required
 
 module.exports = {
     'local-url' : '127.0.0.1:8888',
