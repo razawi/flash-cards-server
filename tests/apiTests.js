@@ -5,7 +5,6 @@ var request =require('supertest')
 // var data = require('../controllers/dataController')
 var mongoose = require('mongoose');
 var configDB = require('../config/database');
-var server = require('../server.js')
 
 describe('data controller and db', function(){
     
@@ -13,14 +12,14 @@ describe('data controller and db', function(){
     before(function(done) {
 
 
-        console.log('before')
-        url = 'http://127.0.0.1:8888'
+        console.log('before');
+        url = 'http://127.0.0.1:8888';
 
         request(url)
-          .get('/ping')
+          .get('/api/health')
           .end(function (err, res) {
-            res.text.should.eql('pong')
-            done()
+            res.text.should.eql('helth chack');
+            done();
         });
     })
 

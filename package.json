@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha"
+    "test": "node ./node_modules/mocha/bin/mocha ./tests/apiTester.js  --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -23,13 +23,15 @@
   "author": "raz kronenberg",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "express": "~4.14.0",
+    "async": "~2.0.0-rc.6",
     "body-parser": "~1.15.1",
+    "co": "~4.6.0",
     "ejs": "~2.4.2",
-    "should": "~9.0.2",
-    "supertest": "~1.2.0",
+    "express": "~4.14.0",
+    "mocha": "~2.5.3",
     "mongoose": "~4.5.1",
-    "mocha": "~2.5.3"
+    "should": "~9.0.2",
+    "supertest": "~1.2.0"
   },
   "devDependencies": {
     "supertest": "~1.2.0"
