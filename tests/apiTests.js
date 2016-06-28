@@ -44,4 +44,78 @@ describe('data controller and db', function(){
                 done();
             });
     })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    })
+
 })
