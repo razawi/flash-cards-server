@@ -13,8 +13,10 @@ router.get('/health', co.wrap(function *(req, res) {
     return res.status(200).send('helth chack');
 }));
 
-//router.get('/ping', function(req, res) {
-//
-//        res.status(200).send('pong')
-//    });
+
+
+router.get('/ping', function(req, res) {
+
+        res.status(200).send('pong')
+    });
 
