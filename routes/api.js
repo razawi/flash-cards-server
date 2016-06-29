@@ -17,17 +17,22 @@ router.get('/ping', function(req, res) {
     res.status(200).send('pong')
 });
 
-router.post('/card', function(req, res) {
-    mongodata.addCard(req.body, res);
-});
+router.route('/card')
+    .post(function(req, res) {
+        mongodata.addCard(req.body, res);
+	});
 
-router.post('/category', function(req, res) {
-    mongodata.addCategory(req.body, res);
-});
 
-router.post('/curricula', function(req, res) { // New Mongo ??
-    mongodata.addCurricula(req.body, res);
-});
+
+router.route('/category')
+    .post(function(req, res) {
+        mongodata.addCategory(req.body, res);
+    });
+
+router.route('/curricula')
+    .post(function(req, res) { // New Mongo ??
+        mongodata.addCurricula(req.body, res);
+    });
 
 
 

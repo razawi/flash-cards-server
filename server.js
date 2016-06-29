@@ -1,11 +1,11 @@
 'use strict';
 
-var express      = require('express');
-var bodyParser   = require('body-parser');
-var path 	     = require('path')
+const express      = require('express');
+const bodyParser   = require('body-parser');
+const path 	     = require('path')
 
 var app = module.exports = express();
-var port = process.env.PORT || 8888;
+const port = process.env.PORT || 8888;
 
 // app.use(cookieParser());
 app.use(bodyParser.json());
@@ -21,14 +21,20 @@ app.all('*', function(req, res, next) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 app.use('/api', require('./routes/api.js'));
 
-// Start the server
 app.listen(port);
 console.log('Server started on port ' + port);
 
+module.exports.app = app;
+
+exports.listen = function () {
+  this.server.listen.apply(this.server, arguments);
+};
+
+
+// var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 // ctach DB errors
 //function mongoInit(){
 //  console.log("mongo Init");
@@ -66,9 +72,3 @@ console.log('Server started on port ' + port);
 //    error: {}
 //  });
 //});
-
-module.exports.app = app;
-
-exports.listen = function () {
-  this.server.listen.apply(this.server, arguments);
-};
