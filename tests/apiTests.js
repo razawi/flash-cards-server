@@ -68,6 +68,16 @@ describe('data controller and db', function(){
             });
     });
 
+    it('empty test getCurricula', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+
+
     it('addCategory to db', function(done) {
         var postData = {
             name: "mocha debug",
@@ -90,6 +100,16 @@ describe('data controller and db', function(){
                 done();
             });
     });
+
+    it('empty test getCategory', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+
 
     it('addCard to db', function(done) {
         var postData = {
@@ -114,7 +134,17 @@ describe('data controller and db', function(){
             });
     });
 
-    it('empty test stub', function(done) {
+    it('empty test stub getCard', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+    
+
+    it('empty test stub delete card', function(done) {
         request(url)
             .get('/api/')
             .end(function (err, res) {
@@ -123,7 +153,7 @@ describe('data controller and db', function(){
             });
     });
 
-    it('empty test stub', function(done) {
+    it('empty test stub delete category with content', function(done) {
         request(url)
             .get('/api/')
             .end(function (err, res) {
@@ -132,16 +162,7 @@ describe('data controller and db', function(){
             });
     });
 
-    it('empty test stub', function(done) {
-        request(url)
-            .get('/api/')
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    it('empty test stub', function(done) {
+    it('empty test stub dont delete category with content', function(done) {
         request(url)
             .get('/api/')
             .end(function (err, res) {
@@ -151,5 +172,52 @@ describe('data controller and db', function(){
     });
 
 
+    it('empty test delete empty Curricula', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+
+    it('empty test stub delete Curricula with content', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+
+    it('empty test stub dont delete Curricula with content', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+
+    it('empty test delete empty category', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
+
+
+
+
+    it('empty test stub', function(done) {
+        request(url)
+            .get('/api/')
+            .end(function (err, res) {
+                // res.text.should.eql('helth chack');
+                done();
+            });
+    });
 
 })

@@ -11,50 +11,48 @@ var face = {};
 
 // make new card
 function addCard(body, res){
-	res.send(200, 'Mock')
+	res.send(200, 'dataController Mock')
 }
 
-// edit card byId
-function editCard(res, id) {
-	return true;
-}
 
 // delete card byId
-function deleteCard(res, id) {
-	return true;
+function deleteCard(body, res){
+	res.send(200, 'dataController Mock')
+}
+
+function getCard (body, res){
+	res.send(200, 'dataController Mock')
 }
 
 // make new category
 function addCategory(body, res){
-	res.send(200, 'Mock')
-}
-
-// edit category byId
-function editCategory(res, catId){
-	return true;
+	res.send(200, 'dataController Mock')
 }
 
 // delete category (only empty) byId
-function deleteCategory(res, catId){
-	return true;
+function deleteCategory(body, res){
+	res.send(200, 'dataController Mock')
+}
+
+
+function getCategory (body, res){
+	res.send(200, 'dataController Mock')
 }
 
 // make new curricula
 function addCurricula(body, res){
 
-	res.send(200, 'Mock')
-}
-
-// edit curricula byId
-function editCurricula(res, curId){
-	return true;
+	res.send(200, 'dataController Mock')
 }
 
 // delete curricula (only empty) byId
-function deleteCurricula(res, curId){
-	return true;
+function deleteCurricula(body, res){
+	res.send(200, 'dataController Mock')
 }
 
+function getCurricula (body, res){
+	res.send(200, 'dataController Mock')
+}
 
 
 // get cards by curriculas
@@ -146,17 +144,16 @@ exports.cardsById = cardsById;
 
 
 exports.addCard = addCard;
-exports.editCard = editCard;
 exports.deleteCard = deleteCard;
+exports.getCard = getCard;
 
 exports.addCategory = addCategory;
-exports.editCategory =  editCategory;
 exports.deleteCategory = deleteCategory;
+exports.getCategory = getCategory
 
 exports.addCurricula = addCurricula;
-exports.editCurricula = editCurricula;
 exports.deleteCurricula = deleteCurricula;
-
+exports.getCurricula = getCurricula;
 //exports.InitDBMocks = InitDBMocks;
 //
 //
@@ -276,3 +273,4 @@ exports.deleteCurricula = deleteCurricula;
 //
 //	mapObjects(jsondb);
 //}
+
