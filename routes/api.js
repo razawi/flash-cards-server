@@ -17,6 +17,7 @@ router.get('/ping', function(req, res) {
 
 router.route('/card')
     .post(function(req, res) {
+        // if has _id edit, else add
         mongodata.addCard(req.body, res);
 	})
     .delete(function(req, res) {
@@ -28,6 +29,7 @@ router.route('/card')
 
 router.route('/category')
     .post(function(req, res) {
+        // if has _id edit, else add
         mongodata.addCategory(req.body, res);
     })
     .delete(function(req, res) {
@@ -38,7 +40,8 @@ router.route('/category')
     });
 
 router.route('/curricula')
-    .post(function(req, res) { // New Mongo ??
+    .post(function(req, res) {
+        // if has _id edit, else add
         mongodata.addCurricula(req.body, res);
     })
     .delete(function(req, res) {
