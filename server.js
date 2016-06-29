@@ -7,9 +7,9 @@ var path 	     = require('path')
 var app = module.exports = express();
 var port = process.env.PORT || 8888;
 
-// app.use(cookieParser()); 
-// app.use(bodyParser.json()); 
-// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
@@ -23,7 +23,6 @@ app.set('view engine', 'html');
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
-// require('./routes/index')(app);
 app.use('/api', require('./routes/api.js'));
 
 // Start the server

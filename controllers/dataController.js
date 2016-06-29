@@ -10,8 +10,8 @@ var face = {};
 
 
 // make new card
-function addCard(res, name, catId, curId) {
-	return true;
+function addCard(body, res){
+	res.send(200, 'Mock')
 }
 
 // edit card byId
@@ -25,8 +25,8 @@ function deleteCard(res, id) {
 }
 
 // make new category
-function addCategory(res, catName, curId){
-	return true;
+function addCategory(body, res){
+	res.send(200, 'Mock')
 }
 
 // edit category byId
@@ -40,8 +40,9 @@ function deleteCategory(res, catId){
 }
 
 // make new curricula
-function addCurricula(res, name){
-	return true;
+function addCurricula(body, res){
+
+	res.send(200, 'Mock')
 }
 
 // edit curricula byId
@@ -53,6 +54,7 @@ function editCurricula(res, curId){
 function deleteCurricula(res, curId){
 	return true;
 }
+
 
 
 // get cards by curriculas

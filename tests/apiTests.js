@@ -45,14 +45,74 @@ describe('data controller and db', function(){
             });
     })
 
-    it('empty test stub', function(done) {
+    it('addCurricula to db', function(done) {
+        var postData = {
+            name: "mocha debug",
+            admins: "raz kronenberg",
+            facess : [{
+                ordernum : 0,
+                symbol : "dbg",
+                text : "mocha face",
+                sound : false,
+                previewDisplay : true
+            }]
+        };
+
         request(url)
-            .get('/api/')
+            .post('/api/curricula')
+            .send(postData)
+            .expect(200)
             .end(function (err, res) {
-                // res.text.should.eql('helth chack');
+                should.not.exist(err)
                 done();
             });
-    })
+    });
+
+    it('addCategory to db', function(done) {
+        var postData = {
+            name: "mocha debug",
+            admins: "raz kronenberg",
+            facess : [{
+                ordernum : 0,
+                symbol : "dbg",
+                text : "mocha face",
+                sound : false,
+                previewDisplay : true
+            }]
+        };
+
+        request(url)
+            .post('/api/category')
+            .send(postData)
+            .expect(200)
+            .end(function (err, res) {
+                should.not.exist(err)
+                done();
+            });
+    });
+
+    it('addCard to db', function(done) {
+        var postData = {
+            name: "mocha debug",
+            admins: "raz kronenberg",
+            facess : [{
+                ordernum : 0,
+                symbol : "dbg",
+                text : "mocha face",
+                sound : false,
+                previewDisplay : true
+            }]
+        };
+
+        request(url)
+            .post('/api/card')
+            .send(postData)
+            .expect(200)
+            .end(function (err, res) {
+                should.not.exist(err)
+                done();
+            });
+    });
 
     it('empty test stub', function(done) {
         request(url)
@@ -61,7 +121,7 @@ describe('data controller and db', function(){
                 // res.text.should.eql('helth chack');
                 done();
             });
-    })
+    });
 
     it('empty test stub', function(done) {
         request(url)
@@ -70,7 +130,7 @@ describe('data controller and db', function(){
                 // res.text.should.eql('helth chack');
                 done();
             });
-    })
+    });
 
     it('empty test stub', function(done) {
         request(url)
@@ -79,7 +139,7 @@ describe('data controller and db', function(){
                 // res.text.should.eql('helth chack');
                 done();
             });
-    })
+    });
 
     it('empty test stub', function(done) {
         request(url)
@@ -88,34 +148,8 @@ describe('data controller and db', function(){
                 // res.text.should.eql('helth chack');
                 done();
             });
-    })
-
-    it('empty test stub', function(done) {
-        request(url)
-            .get('/api/')
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    })
-
-    it('empty test stub', function(done) {
-        request(url)
-            .get('/api/')
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    })
+    });
 
 
-    it('empty test stub', function(done) {
-        request(url)
-            .get('/api/')
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    })
 
 })
