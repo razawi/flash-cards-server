@@ -46,6 +46,7 @@ describe('data controller and db', function(){
             });
     });
 
+    // describe('data controller and db', function(){
     it('addCurricula to db', function(done) {
         var postData = {
             name: "mocha debug",
@@ -80,6 +81,7 @@ describe('data controller and db', function(){
     });
 
 
+   //  describe('data controller and db', function(){
     it('addCategory to db', function(done) {
         var postData = {
             name: "mocha debug",
@@ -113,7 +115,7 @@ describe('data controller and db', function(){
             });
     });
 
-
+// describe('data controller and db', function(){
     it('addCard to db', function(done) {
         var postData = {
             name: "mocha debug",
@@ -219,6 +221,7 @@ describe('data controller and db', function(){
             });
     });
 
+    // describe('existing actions', function(){
     // get cards by category, categorys by curricula, each by Id
 
     it('empty test stub', function(done) {
