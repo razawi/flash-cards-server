@@ -51,3 +51,18 @@ router.route('/curricula')
         mongodata.getCurricula(req.body, res);
     });
 
+
+
+router.get('/listcurriculums', function(req, res) {
+    mongodata.curriculasList(res);
+});
+
+router.get('/listallcategories', function(req, res) {
+    mongodata.categoriesList(res);
+});
+
+router.get('/listallcards', function(req, res) { // New Mongo ??
+    // console.log('/api/listallcards ');
+    mongodata.cardsList(res);
+});
+

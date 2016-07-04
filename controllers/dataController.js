@@ -4,14 +4,19 @@ var models = require('../models/models');
 var mongoose = require('mongoose');
 var fs = require ("fs");
 var curricula = models.Curricula;
-var category = models.Subcategory;
+var category = models.Category;
 var card = models.Card;
 var face = {};
 
 
 // make new card
 function addCard(body, res){
-	res.send(200, 'dataController Mock')
+	card.create(body, function (err, cur) {
+		if (err)
+			res.send(400, 'card not added');
+		else
+			res.send(200, 'card added');
+	})
 }
 
 
@@ -21,12 +26,37 @@ function deleteCard(body, res){
 }
 
 function getCard (body, res){
-	res.send(200, 'dataController Mock')
+	if (body._id){
+		var oid = mongoose.Types.ObjectId(body._id)
+
+		card.find({"_id": oid }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else if (body.name) {
+		card.find({"name": body.name }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else
+		res.send(400, 'no body or _id');
 }
 
 // make new category
 function addCategory(body, res){
-	res.send(200, 'dataController Mock')
+
+	category.create(body, function (err, cur) {
+		if (err)
+			res.send(400, 'Curricula not added');
+		else
+			res.send(200, 'Curricula added');
+	})
 }
 
 // delete category (only empty) byId
@@ -36,22 +66,72 @@ function deleteCategory(body, res){
 
 
 function getCategory (body, res){
-	res.send(200, 'dataController Mock')
+	if (body._id){
+		var oid = mongoose.Types.ObjectId(body._id)
+
+		category.find({"_id": oid }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else if (body.name){
+		category.find({"name": body.name }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else
+		res.send(400, 'no body or _id');
 }
 
 // make new curricula
 function addCurricula(body, res){
+	curricula.create(body, function (err, cur) {
+		if (err)
+			res.send(400, 'Curricula not added');
+		else
+			res.send(200, 'Curricula added');
+	})
+}
 
-	res.send(200, 'dataController Mock')
+function updateCurricula(body, res) {
+	
+
 }
 
 // delete curricula (only empty) byId
 function deleteCurricula(body, res){
+
 	res.send(200, 'dataController Mock')
 }
 
 function getCurricula (body, res){
-	res.send(200, 'dataController Mock')
+
+	// if id find by id, else by name
+	if (body._id){
+		curricula.find({"_id": body._id }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else if (body.name){
+		curricula.find({"name": body.name }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else
+		res.send(400, 'no name and id')
+
+	// res.send(200, 'dataController Mock')
 }
 
 
@@ -69,7 +149,7 @@ function curriculasList(res){
 // get cards by Subcategory
 
 // get all categorys
-function categorysList(res){
+function categoriesList(res){
 
 	category.find({}, function(err, categ){
 		if (err) {res.json(err)}
@@ -119,7 +199,7 @@ function cardsByCategory(res, id){
 }
 
 // get categorys by curicula
-function categorysByCurricula(res, id){
+function categoriesByCurricula(res, id){
 
 	var oid = mongoose.Types.ObjectId(id)
 	category.find({"curricula._id": oid}, function(err, car){
@@ -133,10 +213,10 @@ function categorysByCurricula(res, id){
 
 // flash cards
 exports.curriculasList = curriculasList;
-exports.categorysList = categorysList;
+exports.categoriesList = categoriesList;
 
-exports.categorysList = categorysList;
-exports.categorysByCurricula = categorysByCurricula;
+exports.categoriesList = categoriesList;
+exports.categoriesByCurricula = categoriesByCurricula;
 
 exports.cardsList = cardsList;
 exports.cardsByCategory = cardsByCategory;

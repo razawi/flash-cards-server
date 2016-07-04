@@ -3,6 +3,8 @@
 const express      = require('express');
 const bodyParser   = require('body-parser');
 const path 	     = require('path')
+const mongoose = require('mongoose');
+const configDB = require('./config/database');
 
 var app = module.exports = express();
 const port = process.env.PORT || 8888;
@@ -21,7 +23,7 @@ app.all('*', function(req, res, next) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-
+mongoose.connect(configDB.url);
 app.use('/api', require('./routes/api.js'));
 
 app.listen(port);
@@ -36,14 +38,14 @@ exports.listen = function () {
 
 // var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 // ctach DB errors
-//function mongoInit(){
-//  console.log("mongo Init");
-//  var db = mongoose.connection;
-//  db.on('error', console.error.bind(console, 'mongodb connection error:'));
-//  db.once('open', function (callback) {
-//    console.log("mongo connection open");
-//  });
-//}
+function mongoInit(){
+  console.log("mongo Init");
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'mongodb connection error:'));
+  db.once('open', function (callback) {
+    console.log("mongo connection open");
+  });
+}
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //   var err = new Error('Not Found');

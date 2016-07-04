@@ -19,9 +19,10 @@ var curriculaSchema = new Schema({
 
 });
 
-var subcategorySchema = new Schema({
+var categorySchema = new Schema({
   curricula: [curriculaSchema],
   symbol: String,
+  name: String,
   facess : [{
     ordernum : Number,
     symbol : String,
@@ -33,7 +34,7 @@ var subcategorySchema = new Schema({
 
 var cardSchema = new Schema({
   name: String,
-  subcategory: [subcategorySchema],
+  subcategory: [categorySchema],
   facess : [{
   		    ordernum : Number,
   		    symbol : String, //"subcategory_id.symbol",
@@ -47,9 +48,9 @@ var cardSchema = new Schema({
 // Card decks
 
 var Curricula = mongoose.model('Curricula', curriculaSchema);
-var Subcategory = mongoose.model('Subcategory', subcategorySchema);
+var Category = mongoose.model('Category', categorySchema);
 var Card = mongoose.model('Card', cardSchema);
 
 exports.Curricula = Curricula;
-exports.Subcategory = Subcategory;
+exports.Category = Category;
 exports.Card = Card;
