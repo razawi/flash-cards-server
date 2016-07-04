@@ -7,11 +7,10 @@ var configDB = require('../config/database');
 
 describe('data controller and db', function(){
     
-    var db, url;
+    var url;
     before(function(done) {
-        // todo start server from here
 
-        console.log('before');
+        // todo start server from here
         url = 'http://127.0.0.1:8888';
 
         mongoose.connect(configDB.url, function(){
@@ -29,7 +28,6 @@ describe('data controller and db', function(){
         //close dbcon and server
         done()
     })
-
 
     describe.skip('Sanity tests', function() {
 
@@ -53,7 +51,8 @@ describe('data controller and db', function(){
 
     });
 
-    // describe('Curricula ', function(){
+    describe('adding data', function() {
+
         it('addCurricula to db', function(done) {
             var postData = {
                 name: "mocha debug",
@@ -77,6 +76,7 @@ describe('data controller and db', function(){
                 });
         });
 
+        // by name and id
         it('empty test getCurricula', function(done) {
             request(url)
                 .get('/api/curricula')
@@ -87,153 +87,96 @@ describe('data controller and db', function(){
                 });
         });
 
-    //})
+        it('addCategory to mocha Curricula', function(done) {
+            var postData = {
+                curricula: '',
+                symbol: "DBG Category",
+                facess : [{
+                    ordernum : 0,
+                    symbol : "dbg",
+                    text : "mocha face",
+                    sound : false,
+                    previewDisplay : true
+                }]
+            };
 
+            request(url)
+                .post('/api/category')
+                .send(postData)
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    done();
+                });
+        });
 
-   //  describe('data controller and db', function(){
-    it('addCategory to db', function(done) {
-        var postData = {
-            curricula: '',
-            symbol: "DBG Category",
-            facess : [{
-                ordernum : 0,
-                symbol : "dbg",
-                text : "mocha face",
-                sound : false,
-                previewDisplay : true
-            }]
-        };
+        // by name and id
+        it('empty test getCategory', function(done) {
+            request(url)
+                .get('/api/category')
+                .expect(200)
+                .end(function (err, res) {
+                    // open mongo and check db
 
-        request(url)
-            .post('/api/category')
-            .send(postData)
-            .expect(200)
-            .end(function (err, res) {
-                should.not.exist(err)
-                done();
-            });
+                    done();
+                });
+        });
+
+        it('addCard to mocha category', function(done) {
+            var postData = {
+                name: "DBG Card 1",
+                facess : [{
+                    ordernum : 0,
+                    symbol : "mocha",
+                    text : "mocha",
+                    sound : false,
+                    previewDisplay : true
+                }]
+            };
+
+            request(url)
+                .post('/api/card')
+                .send(postData)
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    done();
+                });
+        });
+
+        // by name and id
+        it('empty test stub getCard', function(done) {
+            request(url)
+                .get('/api/card')
+                .expect(200)
+                .end(function (err, res) {
+                    // res.text.should.eql('helth chack');
+                    done();
+                });
+        });
+
     });
 
-    it('empty test getCategory', function(done) {
-        request(url)
-            .get('/api/category')
-            .expect(200)
-            .end(function (err, res) {
-                // open mongo and check db
+    describe.skip('getting aggregated data', function() {
 
-                done();
-            });
+    })
+    describe.skip('editing and deleting data', function() {
+        it('empty test stub delete card')
+
+        it('empty test stub delete category with content')
+
+        it('empty test stub dont delete category with content')
+
+        it('empty test delete empty Curricula')
+
+        it('empty test stub delete Curricula with content')
+
+        it('empty test stub dont delete Curricula with content')
+
+        it('empty test delete empty category')
     });
 
-// describe('data controller and db', function(){
-    it('addCard to db', function(done) {
-        var postData = {
-            name: "DBG Card 1",
-            facess : [{
-                ordernum : 0,
-                symbol : "mocha", //"subcategory_id.symbol",
-                text : "mocha",
-                sound : false,
-                previewDisplay : true
-            }]
-        };
-
-        request(url)
-            .post('/api/card')
-            .send(postData)
-            .expect(200)
-            .end(function (err, res) {
-                should.not.exist(err)
-                done();
-            });
-    });
-
-    it('empty test stub getCard', function(done) {
-        request(url)
-            .get('/api/card')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-    
-
-    it('empty test stub delete card', function(done) {
-        request(url)
-            .del('/api/card')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    it('empty test stub delete category with content', function(done) {
-        request(url)
-            .del('/api/category')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    it('empty test stub dont delete category with content', function(done) {
-        request(url)
-            .del('/api/category')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-
-    it('empty test delete empty Curricula', function(done) {
-        request(url)
-            .del('/api/curricula')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    it('empty test stub delete Curricula with content', function(done) {
-        request(url)
-            .del('/api/curricula')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    it('empty test stub dont delete Curricula with content', function(done) {
-        request(url)
-            .del('/api/curricula')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    it('empty test delete empty category', function(done) {
-        request(url)
-            .del('/api/curricula')
-            .expect(200)
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
-    });
-
-    // describe('existing actions', function(){
-    // get cards by category, categorys by curricula, each by Id
-
-    it('empty test stub', function(done) {
+    it.skip('empty test stub', function(done) {
         request(url)
             .get('/api/')
             .end(function (err, res) {

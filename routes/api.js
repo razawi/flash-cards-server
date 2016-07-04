@@ -1,5 +1,5 @@
 const express = require('express');
-const RequestHandler = require('../controllers/requestHandlers')
+//const RequestHandler = require('../controllers/requestHandlers')
 const url = require('url');
 const co = require('co');
 const util = require('util');
