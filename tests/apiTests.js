@@ -54,8 +54,8 @@ describe('data controller and db', function(){
     describe('adding data', function() {
 
         it('addCurricula to db', function(done) {
-            var postData = {
-                name: "mocha debug",
+            var newcurricula = {
+                name: "mocha_debug",
                 admins: "raz kronenberg",
                 facess : [{
                     ordernum : 0,
@@ -67,8 +67,8 @@ describe('data controller and db', function(){
             };
 
             request(url)
-                .post('/api/curricula')
-                .send(postData)
+                .put('/api/curricula')
+                .send(newcurricula)
                 .expect(200)
                 .end(function (err, res) {
                     should.not.exist(err)
@@ -77,41 +77,52 @@ describe('data controller and db', function(){
         });
 
         // by name and id
-        it('empty test getCurricula', function(done) {
+        it.skip('empty test getCurriculaList', function(done) {
             request(url)
-                .get('/api/curricula')
+                .get('/api/curriculaList')
                 .expect(200)
                 .end(function (err, res) {
                     // res.text.should.eql('helth chack');
+                    var body = res.body[0];
+                    body.name.should.equal('mocha_debug');
                     done();
                 });
         });
 
         it('addCategory to mocha Curricula', function(done) {
-            var postData = {
-                curricula: '',
-                symbol: "DBG Category",
-                facess : [{
-                    ordernum : 0,
-                    symbol : "dbg",
-                    text : "mocha face",
-                    sound : false,
-                    previewDisplay : true
-                }]
-            };
-
             request(url)
-                .post('/api/category')
-                .send(postData)
+                .get('/api/curriculaList')
                 .expect(200)
                 .end(function (err, res) {
-                    should.not.exist(err)
-                    done();
+                    var curBody = res.body[0];
+                    curBody.name.should.equal('mocha_debug');
+
+                    var newcategory = {
+                        curricula: curBody._id,
+                        symbol: "DBG Category",
+                        name: 'mocha_category',
+                        facess: [{
+                            ordernum: 0,
+                            symbol: "dbg",
+                            text: "mocha face",
+                            sound: false,
+                            previewDisplay: true
+                        }]
+                    };
+
+                    request(url)
+                        .put('/api/category')
+                        .send(newcategory)
+                        .expect(200)
+                        .end(function (err, res) {
+                            should.not.exist(err)
+                            done();
+                        });
                 });
         });
 
         // by name and id
-        it('empty test getCategory', function(done) {
+        it.skip('empty test getCategory', function(done) {
             request(url)
                 .get('/api/category')
                 .expect(200)
@@ -123,7 +134,7 @@ describe('data controller and db', function(){
         });
 
         it('addCard to mocha category', function(done) {
-            var postData = {
+            var newCard1 = {
                 name: "DBG Card 1",
                 facess : [{
                     ordernum : 0,
@@ -135,8 +146,8 @@ describe('data controller and db', function(){
             };
 
             request(url)
-                .post('/api/card')
-                .send(postData)
+                .put('/api/card')
+                .send(newCard1)
                 .expect(200)
                 .end(function (err, res) {
                     should.not.exist(err)

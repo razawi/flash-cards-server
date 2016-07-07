@@ -2,6 +2,7 @@
 
 var models = require('../models/models');
 var mongoose = require('mongoose');
+var _ = require('lodash');
 var fs = require ("fs");
 var curricula = models.Curricula;
 var category = models.Category;
@@ -18,7 +19,6 @@ function addCard(body, res){
 			res.send(200, 'card added');
 	})
 }
-
 
 // delete card byId
 function deleteCard(body, res){
@@ -50,6 +50,13 @@ function getCard (body, res){
 
 // make new category
 function addCategory(body, res){
+
+	//body.curricula = body.curricula.map(function( curricula ) {
+	//	return mongoose.Types.ObjectId(curricula);
+	//});
+
+	var cat = _.omit(body, 'curricula');
+	cat.curricula = mongoose.Types.ObjectId(body.curricula);
 
 	category.create(body, function (err, cur) {
 		if (err)
@@ -135,15 +142,17 @@ function getCurricula (body, res){
 }
 
 
-// get cards by curriculas
 function curriculasList(res){
 
-	curricula.find({}, function(err, curics){
-		if (err) {res.json(error)}
-		else{
-			res.json(curics);
-		}
-	})
+	curricula.find(function(err, curics){
+			if (err) {res.json(error)}
+			else{
+				curics = curics.map(function (curic) {
+					return curic.toObject();
+				});
+				res.json(curics);
+			}
+	});
 }
 
 // get cards by Subcategory
