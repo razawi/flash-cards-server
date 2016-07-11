@@ -76,18 +76,6 @@ describe('data controller and db', function(){
                 });
         });
 
-        // by name and id
-        it.skip('empty test getCurriculaList', function(done) {
-            request(url)
-                .get('/api/curriculaList')
-                .expect(200)
-                .end(function (err, res) {
-                    // res.text.should.eql('helth chack');
-                    var body = res.body[0];
-                    body.name.should.equal('mocha_debug');
-                    done();
-                });
-        });
 
         it('addCategory to mocha Curricula', function(done) {
             request(url)
@@ -121,42 +109,104 @@ describe('data controller and db', function(){
                 });
         });
 
-        // by name and id
-        it.skip('empty test getCategory', function(done) {
+        it('getCategory by name', function(done) {
+            var name
+
             request(url)
                 .get('/api/category')
+                .send({name : 'mocha_category'})
                 .expect(200)
                 .end(function (err, res) {
+                    var body = res.body;
                     // open mongo and check db
-
+                    body[0].name.should.equal('mocha_category');
+                    body[0].symbol.should.equal('DBG Category');
                     done();
                 });
         });
 
-        it('addCard to mocha category', function(done) {
-            var newCard1 = {
-                name: "DBG Card 1",
-                facess : [{
-                    ordernum : 0,
-                    symbol : "mocha",
-                    text : "mocha",
-                    sound : false,
-                    previewDisplay : true
-                }]
-            };
+
+
+        it.skip('getCategory by id', function(done) {
+
+        });
+
+        it('getCategories by curricula id', function(done) {
+            request(url)
+                .get('/api/curriculaList')
+                .expect(200)
+                .end(function (err, res) {
+                   var curBody = res.body[0];
+                   curBody.name.should.equal('mocha_debug');
+                   request(url)
+                        .get('/api/category')
+                        .send({curricula : curBody._id})
+                        .expect(200)
+                        .end(function (err, res) {
+                            var body = res.body;
+                            // open mongo and check db
+                            body[0].name.should.equal('mocha_category');
+                            body[0].symbol.should.equal('DBG Category');
+                            done();
+                        });
+               })
+        })
+
+        it('addCard to mocha category', function(done) { // to refactor with category
 
             request(url)
-                .put('/api/card')
-                .send(newCard1)
+                .get('/api/categoriesList')
                 .expect(200)
                 .end(function (err, res) {
-                    should.not.exist(err)
-                    done();
+                    var catBody = res.body[0];
+                    catBody.name.should.equal('mocha_category');
+
+                    var newCard1 = {
+                        name: "DBG Card 1",
+                        category: catBody._id,
+                        facess : [{
+                            ordernum : 0,
+                            symbol : "mocha",
+                            text : "mocha",
+                            sound : false,
+                            previewDisplay : true
+                        }]
+                    };
+
+                    request(url)
+                        .put('/api/card')
+                        .send(newCard1)
+                        .expect(200)
+                        .end(function (err, res) {
+                            should.not.exist(err)
+                            done();
+                        });
                 });
         });
 
-        // by name and id
-        it('empty test stub getCard', function(done) {
+        it('get cards by category', function(done) {
+
+            request(url)
+                .get('/api/categoriesList')
+                .expect(200)
+                .end(function (err, res) {
+                    var catBody = res.body[0];
+                    catBody.name.should.equal('mocha_category');
+                    request(url)
+                        .get('/api/card')
+                        .send({category: catBody._id})
+                        .expect(200)
+                        .end(function (err, res) {
+                            should.not.exist(err)
+                            res.body[0].name.should.equal('DBG Card 1');
+                            done();
+                        });
+                });
+        });
+
+        // get card by Id
+
+        it.skip('empty test stub getCard', function(done) {
             request(url)
                 .get('/api/card')
                 .expect(200)
@@ -165,12 +215,9 @@ describe('data controller and db', function(){
                     done();
                 });
         });
-
     });
 
-    describe.skip('getting aggregated data', function() {
 
-    })
     describe.skip('editing and deleting data', function() {
         it('empty test stub delete card')
 
@@ -185,6 +232,10 @@ describe('data controller and db', function(){
         it('empty test stub dont delete Curricula with content')
 
         it('empty test delete empty category')
+    });
+
+    describe.skip('card stash tests', function() {
+
     });
 
     it.skip('empty test stub', function(done) {

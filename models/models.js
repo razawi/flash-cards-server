@@ -20,7 +20,7 @@ var curriculaSchema = new Schema({
 });
 
 var categorySchema = new Schema({
-  curricula: [curriculaSchema],
+  curricula:  [{ type: Schema.Types.ObjectId, ref: 'Curricula' }],
   symbol: String,
   name: String,
   facess : [{
@@ -34,7 +34,7 @@ var categorySchema = new Schema({
 
 var cardSchema = new Schema({
   name: String,
-  subcategory: [categorySchema],
+  category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
   facess : [{
   		    ordernum : Number,
   		    symbol : String, //"subcategory_id.symbol",

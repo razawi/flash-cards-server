@@ -36,6 +36,14 @@ function getCard (body, res){
 			}
 		})
 	}
+	else if (body.category) {
+		card.find({"category": body.category }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
 	else if (body.name) {
 		card.find({"name": body.name }, function(err, car){
 			if (err) {res.json(err)}
@@ -51,12 +59,8 @@ function getCard (body, res){
 // make new category
 function addCategory(body, res){
 
-	//body.curricula = body.curricula.map(function( curricula ) {
-	//	return mongoose.Types.ObjectId(curricula);
-	//});
-
-	var cat = _.omit(body, 'curricula');
-	cat.curricula = mongoose.Types.ObjectId(body.curricula);
+	//var cat = _.omit(body, 'curricula');
+	//cat.curricula = mongoose.Types.ObjectId(body.curricula);
 
 	category.create(body, function (err, cur) {
 		if (err)
@@ -76,7 +80,15 @@ function getCategory (body, res){
 	if (body._id){
 		var oid = mongoose.Types.ObjectId(body._id)
 
-		category.find({"_id": oid }, function(err, car){
+		category.find({"_id": body._id }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	}
+	else if (body.curricula){
+		category.find({"curricula": body.curricula }, function(err, car){
 			if (err) {res.json(err)}
 			else{
 				res.json( car);
