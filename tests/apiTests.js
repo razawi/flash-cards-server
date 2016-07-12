@@ -185,7 +185,6 @@ describe('data controller and db', function(){
         });
 
         it('get cards by category', function(done) {
-
             request(url)
                 .get('/api/categoriesList')
                 .expect(200)

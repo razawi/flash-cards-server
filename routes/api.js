@@ -71,3 +71,7 @@ router.get('/cardsList', function(req, res) { // New Mongo ??
     mongodata.cardsList(res);
 });
 
+router.get('/initArabdb', function(req, res) {
+    mongodata.initArabdb(res)
+})
+
