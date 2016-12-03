@@ -7,6 +7,20 @@ var category = models.Category;
 var card = models.Card;
 var face = {};
 
+
+// ********** for conversion ************
+var Schema = mongoose.Schema;
+
+var subCategorySchema = new Schema({
+  curricula:  [{ type: Schema.Types.ObjectId, ref: 'Curricula' }],
+  admins: String,
+  name: String,
+});
+
+var subCategory = mongoose.model('subCategory', subCategorySchema);
+
+// ******************************************
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error:'));
 db.once('open', function (callback) {
@@ -15,22 +29,25 @@ db.once('open', function (callback) {
 mongoose.connect('mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev');
 
 var http = require('http');
-
-//Lets define a port we want to listen to
 const PORT=8080; 
 
-//We need a function which handles requests and send response
 function getCollections(request, response){
 
+    response.setHeader("Content-Type", "application/json; charset=utf-8");
 
+    // promises
 
-     category.find({ }, function(err, result){
-        response.setHeader("Content-Type", "application/json; charset=utf-8");
+     subCategory.find({ }, function(err, result){
+        
         if (err) {response.write(err)}
         else{
+            console.log('else');
             response.write(JSON.stringify(result));
         }
-    }) // . then
+    })
+    
+    // after all are done, save to files
+
     //      category.find({"name": body.name }, function(err, car){
     //     if (err) {res.json(err)}
     //     else{
@@ -44,10 +61,6 @@ function getCollections(request, response){
     //     }
     // })
 
-//       res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
-//   res.write(body, "utf-8");
-//   res.end(); 
-
 
 }
 
@@ -59,31 +72,3 @@ server.listen(PORT, function(){
     //Callback triggered when server is successfully listening. Hurray!
     console.log("Server listening on: http://localhost:%s", PORT);
 });
-
-
-
-
-
-
-
-
-
-
-// var connect = require('connect'),
-//   mongo = require('mongodb');
-
-// // Connect to a mongo database via URI
-// // With the MongoLab addon the MONGOLAB_URI config variable is added to your
-// // Heroku environment.  It can be accessed as process.env.MONGOLAB_URI
-// mongo.connect('mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev', {}, function(error, db){
-
-//   // console.log will write to the heroku log which can be accessed via the 
-//   // command line as "heroku logs"
-//   db.addListener("error", function(error){
-//     console.log("Error connecting to MongoLab");
-//   });
-  
-
-
-
-// });
