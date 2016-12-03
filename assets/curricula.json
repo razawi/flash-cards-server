@@ -1,11 +1,1 @@
-{ _id: 58427cb283421d13cc040b24,
-  name: 'ערבית מדוברת לדוברי עברית',
-  admins: 'raz',
-  __v: 0,
-  facess: 
-   [ { ordernum: 0,
-       symbol: 'TBD',
-       text: 'TBD',
-       sound: false,
-       previewDisplay: false,
-       _id: 58427cb283421d13cc040b25 } ] }
+[{"_id":"58427cb283421d13cc040b24","name":"ערבית מדוברת לדוברי עברית","admins":"raz","__v":0,"facess":[{"ordernum":0,"symbol":"TBD","text":"TBD","sound":false,"previewDisplay":false,"_id":"58427cb283421d13cc040b25"}]}]

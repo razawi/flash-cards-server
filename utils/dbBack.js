@@ -1,3 +1,6 @@
+var http = require('http');
+const PORT=8080;
+
 var models = require('../models/models');
 var mongoose = require('mongoose');
 var _ = require('lodash');
@@ -9,6 +12,10 @@ var category = models.Category;
 var card = models.Card;
 var face = {};
 
+// var el = document.createElement('script');
+// el.src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js";
+// el.type = "text/javascript";
+// document.head.appendChild(el);
 
 // ********** for conversion ************
 var Schema = mongoose.Schema;
@@ -18,6 +25,19 @@ var subCategorySchema = new Schema({
   admins: String,
   name: String,
 });
+
+// var categorySchema = new Schema({
+//   curricula:  [{ type: Schema.Types.ObjectId, ref: 'Curricula' }],
+//   symbol: String,
+//   name: String,
+//   facess : [{
+//     ordernum : Number,
+//     symbol : String,
+//     text : String,
+//     sound : Boolean,
+//     previewDisplay : Boolean
+//   }]
+// });
 
 var subCategory = mongoose.model('subCategory', subCategorySchema);
 
@@ -29,9 +49,7 @@ db.once('open', function (callback) {
     console.log("mongo connection open");
 });
 mongoose.connect('mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev');
-
-var http = require('http');
-const PORT=8080; 
+ 
 
 function getCollections(request, response){
 
@@ -40,7 +58,7 @@ function getCollections(request, response){
             curricula.find({ }, function(err, result){
                 if (err) {response.write(err)}
                 else{
-                    fs.writeFile("../assets/curricula.json", result, function(err) {
+                    fs.writeFile("../assets/curricula.json", JSON.stringify(result), function(err) {
                         if (err) {
                             console.log ('file err ' + err)
                             response.write(err)
@@ -54,10 +72,7 @@ function getCollections(request, response){
             subCategory.find({ }, function(err, result){
                 if (err) {response.write(err)}
                 else{
-                    // _.omit new structure
-                    // save to file
-
-                    fs.writeFile("../assets/subCategory.json", result, function(err) {
+                    fs.writeFile("../assets/subCategory.json", JSON.stringify(result), function(err) {
                         if (err) {
                             console.log ('file err ' + err)
                             response.write(err)
@@ -71,7 +86,7 @@ function getCollections(request, response){
             card.find({ }, function(err, result){
                 if (err) {response.write(err)}
                 else{
-                    fs.writeFile("../assets/card.json", result, function(err) {
+                    fs.writeFile("../assets/card.json", JSON.stringify(result), function(err) {
                         if (err) {
                             console.log ('file err ' + err)
                             response.write(err)
@@ -83,6 +98,7 @@ function getCollections(request, response){
             })
         }
     ], function done(err, results) {
+        if(err) console.log("error ", err);
         console.log("End op async");
         response.write("Great Success");
     });
