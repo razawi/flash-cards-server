@@ -35,12 +35,8 @@ const PORT=8080;
 
 function getCollections(request, response){
 
-    response.setHeader("Content-Type", "application/json; charset=utf-8");
-
-    // promises
-    var res = "";
     async.parallel([
-        function (){
+        function (callback){
             curricula.find({ }, function(err, result){
                 if (err) {response.write(err)}
                 else{
@@ -49,11 +45,12 @@ function getCollections(request, response){
                             console.log ('file err ' + err)
                             response.write(err)
                         }
+                        callback();
                     }); 
                 }
             })
         },
-        function (){
+        function (callback){
             subCategory.find({ }, function(err, result){
                 if (err) {response.write(err)}
                 else{
@@ -65,11 +62,12 @@ function getCollections(request, response){
                             console.log ('file err ' + err)
                             response.write(err)
                         }
+                        callback();
                     }); 
                 }
             })
         },
-        function (){
+        function (callback){
             card.find({ }, function(err, result){
                 if (err) {response.write(err)}
                 else{
@@ -78,12 +76,14 @@ function getCollections(request, response){
                             console.log ('file err ' + err)
                             response.write(err)
                         }
-                        response.write("Great Success");
+                        callback();
+                        
                     }); 
                 }
             })
         }
-    ], function (){
+    ], function done(err, results) {
+        console.log("End op async");
         response.write("Great Success");
     });
 }
@@ -91,8 +91,7 @@ function getCollections(request, response){
 //Create a server
 var server = http.createServer(getCollections);
 
-//Lets start our server
 server.listen(PORT, function(){
-    //Callback triggered when server is successfully listening. Hurray!
+    //Callback triggered when server is successfully listening. 
     console.log("Server listening on: http://localhost:%s", PORT);
 });
