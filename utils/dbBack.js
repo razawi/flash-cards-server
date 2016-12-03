@@ -2,6 +2,8 @@ var models = require('../models/models');
 var mongoose = require('mongoose');
 var _ = require('lodash');
 var fs = require ("fs");
+var async = require("async");
+
 var curricula = models.Curricula;
 var category = models.Category;
 var card = models.Card;
@@ -36,32 +38,54 @@ function getCollections(request, response){
     response.setHeader("Content-Type", "application/json; charset=utf-8");
 
     // promises
+    var res = "";
+    async.parallel([
+        function (){
+            curricula.find({ }, function(err, result){
+                if (err) {response.write(err)}
+                else{
+                    fs.writeFile("../assets/curricula.json", result, function(err) {
+                        if (err) {
+                            console.log ('file err ' + err)
+                            response.write(err)
+                        }
+                    }); 
+                }
+            })
+        },
+        function (){
+            subCategory.find({ }, function(err, result){
+                if (err) {response.write(err)}
+                else{
+                    // _.omit new structure
+                    // save to file
 
-     subCategory.find({ }, function(err, result){
-        
-        if (err) {response.write(err)}
-        else{
-            console.log('else');
-            response.write(JSON.stringify(result));
+                    fs.writeFile("../assets/subCategory.json", result, function(err) {
+                        if (err) {
+                            console.log ('file err ' + err)
+                            response.write(err)
+                        }
+                    }); 
+                }
+            })
+        },
+        function (){
+            card.find({ }, function(err, result){
+                if (err) {response.write(err)}
+                else{
+                    fs.writeFile("../assets/card.json", result, function(err) {
+                        if (err) {
+                            console.log ('file err ' + err)
+                            response.write(err)
+                        }
+                        response.write("Great Success");
+                    }); 
+                }
+            })
         }
-    })
-    
-    // after all are done, save to files
-
-    //      category.find({"name": body.name }, function(err, car){
-    //     if (err) {res.json(err)}
-    //     else{
-    //         res.json( car);
-    //     }
-    // })
-    //      curricula.find({"name": body.name }, function(err, car){
-    //     if (err) {res.json(err)}
-    //     else{
-    //         res.json( car);
-    //     }
-    // })
-
-
+    ], function (){
+        response.write("Great Success");
+    });
 }
 
 //Create a server
