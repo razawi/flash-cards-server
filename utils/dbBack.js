@@ -17,52 +17,27 @@ var face = {};
 // el.type = "text/javascript";
 // document.head.appendChild(el);
 
-// ********** for conversion ************
-var Schema = mongoose.Schema;
-
-var subCategorySchema = new Schema({
-  curricula:  [{ type: Schema.Types.ObjectId, ref: 'Curricula' }],
-  admins: String,
-  name: String,
-});
-
-// var categorySchema = new Schema({
-//   curricula:  [{ type: Schema.Types.ObjectId, ref: 'Curricula' }],
-//   symbol: String,
-//   name: String,
-//   facess : [{
-//     ordernum : Number,
-//     symbol : String,
-//     text : String,
-//     sound : Boolean,
-//     previewDisplay : Boolean
-//   }]
-// });
-
-var subCategory = mongoose.model('subCategory', subCategorySchema);
-
-// ******************************************
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error:'));
 db.once('open', function (callback) {
     console.log("mongo connection open");
 });
+
 mongoose.connect('mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev');
  
 
-function getCollections(request, response){
-
+// function getCollections(request, response){
+function getCollections(){
     async.parallel([
         function (callback){
             curricula.find({ }, function(err, result){
-                if (err) {response.write(err)}
+                if (err) 
+                    console.log(err)
                 else{
                     fs.writeFile("../assets/curricula.json", JSON.stringify(result), function(err) {
-                        if (err) {
+                        if (err) 
                             console.log ('file err ' + err)
-                            response.write(err)
-                        }
+                        
                         callback();
                     }); 
                 }
@@ -70,7 +45,8 @@ function getCollections(request, response){
         },
         function (callback){
             subCategory.find({ }, function(err, result){
-                if (err) {response.write(err)}
+                if (err)
+                    console.log(err)
                 else{
                     fs.writeFile("../assets/subCategory.json", JSON.stringify(result), function(err) {
                         if (err) {
@@ -84,30 +60,25 @@ function getCollections(request, response){
         },
         function (callback){
             card.find({ }, function(err, result){
-                if (err) {response.write(err)}
+                if (err) 
+                    console.log(err)
                 else{
                     fs.writeFile("../assets/card.json", JSON.stringify(result), function(err) {
-                        if (err) {
+                        if (err) 
                             console.log ('file err ' + err)
-                            response.write(err)
-                        }
-                        callback();
                         
+                        callback();
                     }); 
                 }
             })
         }
     ], function done(err, results) {
         if(err) console.log("error ", err);
-        console.log("End op async");
-        response.write("Great Success");
+        console.log("DB Backeup Finished!");
+        // response.write("Great Success");
     });
 }
 
-//Create a server
-var server = http.createServer(getCollections);
+// backup
+setTimeout( getCollections, 1000);
 
-server.listen(PORT, function(){
-    //Callback triggered when server is successfully listening. 
-    console.log("Server listening on: http://localhost:%s", PORT);
-});
