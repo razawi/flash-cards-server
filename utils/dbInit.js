@@ -7,6 +7,14 @@ $ = require("jquery");
 
 const configDB = require('../config/database');
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongodb connection error:'));
+db.once('open', function (callback) {
+    console.log("mongo connection open");
+});
+
+mongoose.connect(configDB.url);
+
 mcurricula = models.Curricula;
 mcategory = models.Category;
 mcard = models.Card;
@@ -16,13 +24,9 @@ fcards = require('../assets/mocha-card.json');
 fcategory = require('../assets/mocha-category.json');
 fcurricula = require('../assets/mocha-curricula.json');
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'mongodb connection error:'));
-db.once('open', function (callback) {
-    console.log("mongo connection open");
-});
 
-mongoose.connect(configDB.url);
+
+
 
 
 function initDB(){
@@ -41,10 +45,10 @@ function initDB(){
 
 function  initCurricula(){
 
-    $.each(fcurricula, function(cur, b) {
+    for (obj in fcurricula){
         debugger;
+    }
 
-    });
     // foreach curricula in file 
 
 //     async.series([
@@ -56,6 +60,7 @@ function  initCurricula(){
 }
 
 setTimeout( initDB, 100);
+
 // var el = document.createElement('script');
 // el.src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js";
 // el.type = "text/javascript";

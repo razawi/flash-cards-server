@@ -73,6 +73,5 @@ function getCollections(){
     });
 }
 
-// backup
 setTimeout( getCollections, 1000);
 
