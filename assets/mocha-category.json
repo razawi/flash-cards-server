@@ -1,0 +1,36 @@
+[{
+	"_id": "58537a2becdca6a87385c5c6",
+	"symbol": "DBG Category",
+	"name": "mocha_category",
+	"__v": 0,
+	"facess": [{
+		"ordernum": 0,
+		"symbol": "trans-dbg",
+		"text": "mocha trans-face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5ca"
+	}, {
+		"ordernum": 1,
+		"symbol": "heb-dbg",
+		"text": "mocha hebface",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c9"
+	}, {
+		"ordernum": 2,
+		"symbol": "eng-dbg",
+		"text": "mocha eng-face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c8"
+	}, {
+		"ordernum": 3,
+		"symbol": "arb-dbg",
+		"text": "mocha arb-face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c7"
+	}],
+	"curricula": ["58537a2becdca6a87385c5bc"]
+}]

@@ -64,9 +64,9 @@ function addCategory(body, res){
 
 	category.create(body, function (err, cur) {
 		if (err)
-			res.send(400, 'Curricula not added');
+			res.send(400, 'Category not added');
 		else
-			res.send(200, 'Curricula added');
+			res.send(200, 'Category added');
 	})
 }
 

@@ -301,8 +301,6 @@ describe('data controller and db', function(){
                 });
         });
 
-        // 
-
         // get card by Id
 
         it.skip('empty test stub getCard', function(done) {

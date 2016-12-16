@@ -1,0 +1,69 @@
+[{
+	"_id": "58537a2becdca6a87385c5bc",
+	"name": "mocha_debug",
+	"admins": "raz kronenberg",
+	"__v": 0,
+	"facess": [{
+		"ordernum": 0,
+		"symbol": "transcript-dbg",
+		"text": "Transcript mocha face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c0"
+	}, {
+		"ordernum": 1,
+		"symbol": "heb-dbg",
+		"text": "Hebrew mocha face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5bf"
+	}, {
+		"ordernum": 2,
+		"symbol": "eng-dbg",
+		"text": "English mocha face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5be"
+	}, {
+		"ordernum": 3,
+		"symbol": "arab-dbg",
+		"text": "Arabic mocha face",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5bd"
+	}]
+}, {
+	"_id": "58537a2becdca6a87385c5c1",
+	"name": "second mocha cur",
+	"admins": "raz kronenberg",
+	"__v": 0,
+	"facess": [{
+		"ordernum": 0,
+		"symbol": "transcript-dbg",
+		"text": "Transcript second mocha",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c5"
+	}, {
+		"ordernum": 1,
+		"symbol": "heb-dbg",
+		"text": "Hebrew second mocha",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c4"
+	}, {
+		"ordernum": 2,
+		"symbol": "eng-dbg",
+		"text": "English second mocha",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c3"
+	}, {
+		"ordernum": 3,
+		"symbol": "arab-dbg",
+		"text": "Arabic second mocha",
+		"sound": false,
+		"previewDisplay": true,
+		"_id": "58537a2becdca6a87385c5c2"
+	}]
+}]

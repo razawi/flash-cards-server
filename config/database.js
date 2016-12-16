@@ -1,10 +1,9 @@
 // config/database.js
 module.exports = {
+    'url' : 'mongodb://localhost/cards',
     'weburl' : 'mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev',
-    'url' : 'mongodb://localhost/cards'
+    'backup-url' : 'mongodb://localhost/cards',
+    'to-reset-url' : 'mongodb://localhost/cards',
+    'local-dev-url' : 'mongodb://localhost/cards',
+    'mongodb-url' : 'mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev'
 };
-
-// mongodb://<dbuser>:<dbpassword>@ds051625.mongolab.com:51625/sayso-dev
-//mongoose.connect('mongodb://raz:razdev@ds051625.mongolab.com:51625/sayso-dev');
-
-//mongoose.connect('mongodb://localhost/cards');

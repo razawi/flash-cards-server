@@ -1,11 +1,9 @@
-var http = require('http');
-const PORT=8080;
-
 var models = require('../models/models');
 var mongoose = require('mongoose');
 var _ = require('lodash');
 var fs = require ("fs");
 var async = require("async");
+const configDB = require('../config/database');
 
 var curricula = models.Curricula;
 var category = models.Category;
@@ -23,7 +21,7 @@ db.once('open', function (callback) {
     console.log("mongo connection open");
 });
 
-mongoose.connect('mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev');
+mongoose.connect(configDB.url);
  
 function getCollections(){
     async.parallel([
@@ -32,7 +30,7 @@ function getCollections(){
                 if (err) 
                     console.log(err)
                 else{
-                    fs.writeFile("../assets/curricula.json", JSON.stringify(result), function(err) {
+                    fs.writeFile("./assets/curricula.json", JSON.stringify(result), function(err) {
                         if (err) 
                             console.log ('file err ' + err)
                         
@@ -42,15 +40,14 @@ function getCollections(){
             })
         },
         function (callback){
-            subCategory.find({ }, function(err, result){
+            category.find({ }, function(err, result){
                 if (err)
                     console.log(err)
                 else{
-                    fs.writeFile("../assets/subCategory.json", JSON.stringify(result), function(err) {
-                        if (err) {
+                    fs.writeFile("./assets/category.json", JSON.stringify(result), function(err) {
+                        if (err)
                             console.log ('file err ' + err)
-                            response.write(err)
-                        }
+                     
                         callback();
                     }); 
                 }
@@ -61,7 +58,7 @@ function getCollections(){
                 if (err) 
                     console.log(err)
                 else{
-                    fs.writeFile("../assets/card.json", JSON.stringify(result), function(err) {
+                    fs.writeFile("./assets/card.json", JSON.stringify(result), function(err) {
                         if (err) 
                             console.log ('file err ' + err)
                         
