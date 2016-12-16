@@ -60,13 +60,9 @@ directives directory structure. It makes the code more easy to navigate and ther
 a full REST API In node
 
 ### utils
-```
-utils/dbBackup
-``` a necessary for development tool 
+`` utils/dbBackup ``  a necessary for development tool 
 
-```
-utils/dbInit 
-``` with some nice async work to prevent DB timeout
+``utils/dbInit`` with some nice async work to prevent DB timeout
 
 
 ### Installation Instruction
@@ -101,11 +97,12 @@ Initialize basic developer database via browser.
 ##### Notice the config directory and modify It by need.
 
 
-Browse to *[localhost:8888](127.0.0.1:8888/api)* and debug / develop!
+Browse to [localhost](127.0.0.1:8888/api) and debug / develop!
 
 
 ### Client
 There Is a seperate client project in [development](https://github.com/razawi/flashCards-client) 
+
 
 
 ### Credentials and credits
@@ -113,6 +110,4 @@ There Is a seperate client project in [development](https://github.com/razawi/fl
 It's open source (MIT license)
 
 Feel free to whatever you want to do with it.
-
-
 
