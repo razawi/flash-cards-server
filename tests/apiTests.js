@@ -55,7 +55,7 @@ describe('data controller and db', function(){
 
         it('addCurricula to db', function(done) {
             var newcurricula = {
-                name: "mocha_debug",
+                name: "mocha_curricula",
                 admins: "raz kronenberg",
                 facess : [{
                     ordernum : 0,
@@ -96,7 +96,7 @@ describe('data controller and db', function(){
 
         it('add Second Curricula to db', function(done) {
             var newcurricula = {
-                name: "second mocha cur",
+                name: "second mocha Curricula",
                 admins: "raz kronenberg",
                 facess : [{
                     ordernum : 0,
@@ -145,11 +145,11 @@ describe('data controller and db', function(){
                 .expect(200)
                 .end(function (err, res) {
                     var curBody = res.body[0];
-                    curBody.name.should.equal('mocha_debug');
+                    curBody.name.should.equal('mocha_curricula');
 
                     var newcategory = {
                         curricula: curBody._id,
-                        symbol: "DBG Category",
+                        symbol: "mocha category",
                         name: 'mocha_category',
                         facess: [{
                             ordernum: 0,
@@ -200,7 +200,7 @@ describe('data controller and db', function(){
                     var body = res.body;
                     // open mongo and check db
                     body[0].name.should.equal('mocha_category');
-                    body[0].symbol.should.equal('DBG Category');
+                    body[0].symbol.should.equal('mocha category');
                     done();
                 });
         });
@@ -217,7 +217,7 @@ describe('data controller and db', function(){
                 .expect(200)
                 .end(function (err, res) {
                    var curBody = res.body[0];
-                   curBody.name.should.equal('mocha_debug');
+                   curBody.name.should.equal('mocha_curricula');
                    request(url)
                         .get('/api/category')
                         .send({curricula : curBody._id})
@@ -226,7 +226,7 @@ describe('data controller and db', function(){
                             var body = res.body;
                             // open mongo and check db
                             body[0].name.should.equal('mocha_category');
-                            body[0].symbol.should.equal('DBG Category');
+                            body[0].symbol.should.equal('mocha category');
                             done();
                         });
                })
@@ -242,7 +242,7 @@ describe('data controller and db', function(){
                     catBody.name.should.equal('mocha_category');
 
                     var newCard1 = {
-                        name: "DBG Card 1",
+                        name: "mocha_card_1",
                         category: catBody._id,
                         facess : [{
                             ordernum : 0,
@@ -295,7 +295,7 @@ describe('data controller and db', function(){
                         .expect(200)
                         .end(function (err, res) {
                             should.not.exist(err)
-                            res.body[0].name.should.equal('DBG Card 1');
+                            res.body[0].name.should.equal('mocha_card_1');
                             done();
                         });
                 });
