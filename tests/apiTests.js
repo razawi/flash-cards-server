@@ -59,8 +59,67 @@ describe('data controller and db', function(){
                 admins: "raz kronenberg",
                 facess : [{
                     ordernum : 0,
-                    symbol : "dbg",
-                    text : "mocha face",
+                    symbol : "transcript-dbg",
+                    text : "Transcript mocha face",
+                    sound : false,
+                    previewDisplay : true
+                },{
+                    ordernum : 1,
+                    symbol : "heb-dbg",
+                    text : "Hebrew mocha face",
+                    sound : false,
+                    previewDisplay : true
+                },{
+                    ordernum : 2,
+                    symbol : "eng-dbg",
+                    text : "English mocha face",
+                    sound : false,
+                    previewDisplay : true
+                },{
+                    ordernum : 3,
+                    symbol : "arab-dbg",
+                    text : "Arabic mocha face",
+                    sound : false,
+                    previewDisplay : true
+                }]
+            };
+
+            request(url)
+                .put('/api/curricula')
+                .send(newcurricula)
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    done();
+                });
+        });
+
+        it('add Second Curricula to db', function(done) {
+            var newcurricula = {
+                name: "second mocha cur",
+                admins: "raz kronenberg",
+                facess : [{
+                    ordernum : 0,
+                    symbol : "transcript-dbg",
+                    text : "Transcript second mocha",
+                    sound : false,
+                    previewDisplay : true
+                },{
+                    ordernum : 1,
+                    symbol : "heb-dbg",
+                    text : "Hebrew second mocha",
+                    sound : false,
+                    previewDisplay : true
+                },{
+                    ordernum : 2,
+                    symbol : "eng-dbg",
+                    text : "English second mocha",
+                    sound : false,
+                    previewDisplay : true
+                },{
+                    ordernum : 3,
+                    symbol : "arab-dbg",
+                    text : "Arabic second mocha",
                     sound : false,
                     previewDisplay : true
                 }]
@@ -94,8 +153,26 @@ describe('data controller and db', function(){
                         name: 'mocha_category',
                         facess: [{
                             ordernum: 0,
-                            symbol: "dbg",
-                            text: "mocha face",
+                            symbol: "trans-dbg",
+                            text: "mocha trans-face",
+                            sound: false,
+                            previewDisplay: true
+                        },{
+                            ordernum: 1,
+                            symbol: "heb-dbg",
+                            text: "mocha hebface",
+                            sound: false,
+                            previewDisplay: true
+                        },{
+                            ordernum: 2,
+                            symbol: "eng-dbg",
+                            text: "mocha eng-face",
+                            sound: false,
+                            previewDisplay: true
+                        },{
+                            ordernum: 3,
+                            symbol: "arb-dbg",
+                            text: "mocha arb-face",
                             sound: false,
                             previewDisplay: true
                         }]
@@ -169,8 +246,26 @@ describe('data controller and db', function(){
                         category: catBody._id,
                         facess : [{
                             ordernum : 0,
-                            symbol : "mocha",
-                            text : "mocha",
+                            symbol : "trans-card",
+                            text : "mocha card transcript",
+                            sound : false,
+                            previewDisplay : true
+                        },{
+                            ordernum : 1,
+                            symbol : "heb-card",
+                            text : "mocha card heb",
+                            sound : false,
+                            previewDisplay : true
+                        },{
+                            ordernum : 2,
+                            symbol : "eng-card",
+                            text : "mocha card eng",
+                            sound : false,
+                            previewDisplay : true
+                        },{
+                            ordernum : 0,
+                            symbol : "arb-card",
+                            text : "mocha card arb",
                             sound : false,
                             previewDisplay : true
                         }]
