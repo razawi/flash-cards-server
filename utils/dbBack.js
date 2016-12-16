@@ -25,8 +25,6 @@ db.once('open', function (callback) {
 
 mongoose.connect('mongodb://raz:razdev@ds049925.mongolab.com:49925/cards-dev');
  
-
-// function getCollections(request, response){
 function getCollections(){
     async.parallel([
         function (callback){
@@ -75,7 +73,6 @@ function getCollections(){
     ], function done(err, results) {
         if(err) console.log("error ", err);
         console.log("DB Backeup Finished!");
-        // response.write("Great Success");
     });
 }
 

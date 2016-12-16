@@ -29,7 +29,7 @@ describe('data controller and db', function(){
         done()
     })
 
-    describe.skip('Sanity tests', function() {
+    describe('Sanity tests', function() {
 
         it('should return pong', function(done){
             request(url)
@@ -75,6 +75,9 @@ describe('data controller and db', function(){
                     done();
                 });
         });
+
+        // get list of curricula's
+
 
 
         it('addCategory to mocha Curricula', function(done) {
@@ -202,6 +205,8 @@ describe('data controller and db', function(){
                         });
                 });
         });
+
+        // 
 
         // get card by Id
 

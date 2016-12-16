@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
-  // res.header("Access-Control-Allow-Origin", "*"); TODO : removeme
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });
@@ -49,16 +49,16 @@ function mongoInit(){
 
 
 
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+// catch 404 and forward to error handler - dev only
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 // error handlers
 // development error handler
 // will print stacktrace
-//if (app.get('env') === 'development') {
+// if (app.get('env') === 'development') {
 //  app.use(function(err, req, res, next) {
 //    res.status(err.status || 500);
 //    res.render('error', {
@@ -66,14 +66,14 @@ function mongoInit(){
 //      error: err
 //    });
 //  });
-//}
-//
-//// production error handler
-//// no stacktraces leaked to user
-//app.use(function(err, req, res, next) {
+// }
+
+// //// production error handler
+// //// no stacktraces leaked to user
+// app.use(function(err, req, res, next) {
 //  res.status(err.status || 500);
 //  res.render('error', {
 //    message: err.message,
 //    error: {}
 //  });
-//});
+// });

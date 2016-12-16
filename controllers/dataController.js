@@ -159,8 +159,8 @@ function curriculasList(res){
 	curricula.find(function(err, curics){
 			if (err) {res.json(error)}
 			else{
-				curics = curics.map(function (curic) {
-					return curic.toObject();
+				curics = curics.map(function (curics) {
+					return curics.toObject();
 				});
 				res.json(curics);
 			}

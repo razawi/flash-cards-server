@@ -66,8 +66,7 @@ router.get('/categoriesList', function(req, res) {
     mongodata.categoriesList(res);
 });
 
-router.get('/cardsList', function(req, res) { // New Mongo ??
-    // console.log('/api/listallcards ');
+router.get('/cardsList', function(req, res) { 
     mongodata.cardsList(res);
 });
 
