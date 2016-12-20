@@ -25,17 +25,12 @@ fcategory = require('../assets/mocha-category.json');
 fcurricula = require('../assets/mocha-curricula.json');
 
 
-
-
-
-
 function initDB(){
 
     initCurricula()
 
     console.log('DB Inited');
 
-    // async 
     //      initCurricula
     //      initCategory - currentlu curricula is empty
     //      initCards - seems to be to much info, adjust
@@ -45,17 +40,39 @@ function initDB(){
 
 function  initCurricula(){
 
-    for (obj in fcurricula){
-        debugger;
+    function* entries(obj) {
+        for (let key of Object.keys(obj)) {
+            debugger;
+
+            var curricula = new mcurricula({
+                name : obj[key].name,
+                admins : obj[key].admins,
+                facess : []
+            });
+
+            _.fill(curricula.facess, obj[key].facess);
+
+            yield curricula;
+        }
     }
 
-    // foreach curricula in file 
 
-//     async.series([
-//          function(callback) { ... },
-//          function(callback) { ... }
-//      ]);
+    // create and iterator object
+    let iterator = entries(fcurricula);
 
+    var next = iterator.next(); 
+
+     
+        next.value.save(function(err, next) {
+            if (err) throw err; // yield err ??
+
+            else{
+                console.log('Curriculum created!');  
+                next = iterator.next(); 
+            }
+        });
+
+       
 
 }
 

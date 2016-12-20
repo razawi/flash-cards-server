@@ -62,7 +62,7 @@ a full REST API In node
 ### utils
 `` utils/dbBackup ``  a necessary for development tool 
 
-``utils/dbInit`` with some nice async work to prevent DB timeout
+``utils/dbInit`` with some nice ES6 Iterators
 
 
 ### Installation Instruction
