@@ -1,9 +1,10 @@
 var models = require('../models/models');
 var mongoose = require('mongoose');
-_ = require('lodash');
-fs = require ("fs");
+
 async = require("async");
 $ = require("jquery");
+_ = require('lodash');
+fs = require ("fs");
 
 const configDB = require('../config/database');
 
@@ -28,51 +29,36 @@ fcurricula = require('../assets/mocha-curricula.json');
 function initDB(){
 
     initCurricula()
-
-    console.log('DB Inited');
-
-    //      initCurricula
     //      initCategory - currentlu curricula is empty
     //      initCards - seems to be to much info, adjust
-
-    debugger;
 }
 
-function  initCurricula(){
+function initCurricula(){
 
     function* entries(obj) {
         for (let key of Object.keys(obj)) {
-            debugger;
 
             var curricula = new mcurricula({
+                _id : obj[key]._id,
                 name : obj[key].name,
                 admins : obj[key].admins,
-                facess : []
+                facess : JSON.parse(JSON.stringify(obj[key].facess))
             });
-
-            _.fill(curricula.facess, obj[key].facess);
 
             yield curricula;
         }
     }
 
-
-    // create and iterator object
     let iterator = entries(fcurricula);
 
-    var next = iterator.next(); 
+    // setInterval while next has value ?
 
-     
-        next.value.save(function(err, next) {
-            if (err) throw err; // yield err ??
+    var next  = iterator.next(); 
 
-            else{
-                console.log('Curriculum created!');  
-                next = iterator.next(); 
-            }
-        });
-
-       
+    next.value.save(function(err) {
+        if (err) throw err; 
+        else console.log('Curriculum created! ' + Date.now());  
+    });
 
 }
 
