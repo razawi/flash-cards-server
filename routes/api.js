@@ -70,7 +70,3 @@ router.get('/cardsList', function(req, res) {
     mongodata.cardsList(res);
 });
 
-router.get('/initArabdb', function(req, res) {
-    mongodata.initArabdb(res)
-})
-
