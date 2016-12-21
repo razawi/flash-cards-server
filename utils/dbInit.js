@@ -107,9 +107,9 @@ function saveNextCuricula(){
     } 
 }
 
-var cardInterval = setInterval (saveNextCard, 8);
-var categoryInterval = setInterval (saveNextCategory, 28);
-var curriculaInterval = setInterval (saveNextCuricula, 35);
+var cardInterval = setInterval (saveNextCard, 108);
+var categoryInterval = setInterval (saveNextCategory, 228);
+var curriculaInterval = setInterval (saveNextCuricula, 265);
 
 /* later */
 

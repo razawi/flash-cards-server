@@ -2,8 +2,6 @@
 
 #### Work Is still in progress!
 
-See old [Demo] (https://fierce-taiga-41516.herokuapp.com/)
-
 # betterFlahCards
 a nodejs server with angular client to manage better flahs cards.
 
