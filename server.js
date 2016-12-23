@@ -23,7 +23,7 @@ app.all('*', function(req, res, next) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.weburl);
 app.use('/api', require('./routes/api.js'));
 
 app.listen(port);
