@@ -6,6 +6,8 @@
 This Is an API for the [betterFlashCards project](https://github.com/razawi/betterFlashCards) 
 It Is written In node and uses mongo db and express routing.
 
+[Heoku deployment](https://better-flash-cards-api.herokuapp.com/api/cardsList)
+
 ### The displayed Data
 The first data here which is used both as an example and for development purposses is a list of common words in spoken Arabic
 In the Palastinian dialect and the matching transcript in English and meaning in Hebrew. hopefully in the future more people will donate flash cards for
