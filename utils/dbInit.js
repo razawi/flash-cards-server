@@ -1,3 +1,5 @@
+'use strict';
+
 var models = require('../models/models');
 var mongoose = require('mongoose');
 
@@ -10,16 +12,18 @@ db.once('open', function (callback) {
     console.log("mongo connection open");
 });
 
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.weburl);
 
-fcards = require('../assets/arab-card.json');
-fcategory = require('../assets/arab-category.json');
-fcurricula = require('../assets/arab-curricula.json');
 
-mcurricula = models.Curricula;
-mcategory = models.Category;
-mcard = models.Card;
-face = {};
+
+var fcards = require('../assets/arab-card.json');
+var fcategory = require('../assets/arab-category.json');
+var fcurricula = require('../assets/arab-curricula.json');
+
+var mcurricula = models.Curricula;
+var mcategory = models.Category;
+var mcard = models.Card;
+var face = {};
 
 function* entriesCuric(obj) {
     for (let key of Object.keys(obj)) {

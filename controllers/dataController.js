@@ -113,7 +113,7 @@ function addCurricula(body, res){
 		if (err)
 			res.send(400, 'Curricula not added');
 		else
-			res.send(200, 'Curricula added');
+			res.status(200).send('Curricula added');
 	})
 }
 
