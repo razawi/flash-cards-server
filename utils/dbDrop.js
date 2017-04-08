@@ -12,7 +12,7 @@ db.once('open', function (callback) {
     console.log("mongo connection open");
 });
 
-mongoose.connect(configDB.weburl);
+mongoose.connect(configDB.url);
 
 
 mongoose.connection.on('open', function(){

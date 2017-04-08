@@ -12,6 +12,7 @@ logs
 results
 tatus
 .vscode
+.DS_Store
 
 npm-debug.log
 node_modules
