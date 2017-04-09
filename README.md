@@ -63,8 +63,6 @@ Browse to [localhost](127.0.0.1:8888/api) and debug / develop!
 ### Client
 There Is a seperate client project in [development](https://github.com/razawi/flashCards-client) 
 
-
-
 ### Credentials and credits
 
 It's open source (MIT license)
