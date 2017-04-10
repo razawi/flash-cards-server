@@ -9,7 +9,6 @@ var category = models.Category;
 var card = models.Card;
 var face = {};
 
-
 // make new card
 function addCard(body, res){
 	card.create(body, function (err, cur) {
@@ -25,9 +24,9 @@ function deleteCard(body, res){
 	res.send(200, 'dataController Mock')
 }
 
-function getCard (body, res){
-	if (body._id){
-		var oid = mongoose.Types.ObjectId(body._id)
+function getCardById (id, res){
+	try{
+		var oid = mongoose.Types.ObjectId(id)
 
 		card.find({"_id": oid }, function(err, car){
 			if (err) {res.json(err)}
@@ -35,8 +34,14 @@ function getCard (body, res){
 				res.json( car);
 			}
 		})
+	} catch(x){
+		res.status(400).send('no body or _id');
 	}
-	else if (body.category) {
+}
+
+// deprecate
+function getCard (body, res){
+	if (body.category) {
 		card.find({"category": body.category }, function(err, car){
 			if (err) {res.json(err)}
 			else{
@@ -128,18 +133,24 @@ function deleteCurricula(body, res){
 	res.send(200, 'dataController Mock')
 }
 
-function getCurricula (body, res){
 
-	// if id find by id, else by name
-	if (body._id){
-		curricula.find({"_id": body._id }, function(err, car){
+function getCategoriesByCurriculaId(id, res){
+	try{
+		//todo - get the categories with curricula Id
+		category.find({}, function(err, categ){
 			if (err) {res.json(err)}
 			else{
-				res.json( car);
+				res.json(categ);
 			}
 		})
+	} catch(x){
+		res.status(400).send('no body or _id');
 	}
-	else if (body.name){
+}
+
+// to deprecate
+function getCurricula (body, res){
+	if (body.name){
 		curricula.find({"name": body.name }, function(err, car){
 			if (err) {res.json(err)}
 			else{
@@ -208,15 +219,17 @@ function cardsById(res, id){
 // find category id by name
 
 // get cards by category id	???
-function cardsByCategory(res, id){
+function cardsByCategoryId(id, res){
 	var oid = mongoose.Types.ObjectId(id);
 
-	card.find({"subcategory._id": oid }, function(err, car){
-		if (err) {res.json(err)}
-		else{
-			res.json( car);
-		}
-	})
+	try{
+		card.find({"subcategory._id": oid }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	} catch(x){}
 }
 
 // get categorys by curicula
@@ -240,13 +253,14 @@ exports.categoriesList = categoriesList;
 exports.categoriesByCurricula = categoriesByCurricula;
 
 exports.cardsList = cardsList;
-exports.cardsByCategory = cardsByCategory;
+exports.cardsByCategoryId = cardsByCategoryId;
 exports.cardsById = cardsById;
 
 
 exports.addCard = addCard;
 exports.deleteCard = deleteCard;
-exports.getCard = getCard;
+exports.getCard = getCard; // todo - reduce and remove
+exports.getCardById = getCardById;
 
 exports.addCategory = addCategory;
 exports.deleteCategory = deleteCategory;
@@ -254,4 +268,5 @@ exports.getCategory = getCategory
 
 exports.addCurricula = addCurricula;
 exports.deleteCurricula = deleteCurricula;
-exports.getCurricula = getCurricula;
+// exports.getCurricula = getCurricula;
+exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;

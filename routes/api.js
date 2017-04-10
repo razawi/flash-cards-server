@@ -25,7 +25,10 @@ router.route('/card')
         mongodata.deleteCard(req.body, res);
 	})
     .get(function(req, res) {
-        mongodata.getCard(req.body, res);
+        if (req.query.id){
+            mongodata.getCardById(req.query.id, res);
+        }
+        // mongodata.getCard(req.body, res);
     });
 
 router.route('/category')
@@ -39,8 +42,16 @@ router.route('/category')
         mongodata.deleteCategory(req.body, res);
     })
     .get(function(req, res) {
-        mongodata.getCategory(req.body, res);
+        if (req.query.id){
+            mongodata.cardsByCategoryId(req.query.id, res);
+        }
     });
+
+
+router.route('/cardsList')
+    .get(function(req, res){
+        mongodata.cardsList(res);
+    })    
 
 router.route('/curricula')
     .put(function(req, res) {
@@ -53,7 +64,9 @@ router.route('/curricula')
         mongodata.deleteCurricula(req.body, res);
     })
     .get(function(req, res) {
-        mongodata.getCurricula(req.body, res);
+        if (req.query.id){
+            mongodata.getCategoriesByCurriculaId(req.query.id, res);
+        }
     });
 
 
