@@ -20,7 +20,7 @@ describe('data controller and db', function(){
     })
 
     beforeEach(function(done){
-        //dbFlush ?
+        //dbFlush
         done()
     })
 
@@ -51,8 +51,7 @@ describe('data controller and db', function(){
 
     });
 
-    describe('adding data', function() {
-
+    describe('curricula data CRUD', function() {
         it('addCurricula to db', function(done) {
             var newcurricula = {
                 name: "mocha_curricula",
@@ -137,7 +136,13 @@ describe('data controller and db', function(){
 
         // get list of curricula's
 
+        // edit curricula
 
+        // delete curricula
+
+    });
+
+    describe('category data CRUD', function() {
 
         it('addCategory to mocha Curricula', function(done) {
             request(url)
@@ -189,12 +194,13 @@ describe('data controller and db', function(){
                 });
         });
 
+        // fail
         it('getCategory by name', function(done) {
             var name
 
             request(url)
-                .get('/api/category')
-                .send({name : 'mocha_category'})
+                .get('/api/category?name=mocha_category')
+                .send()
                 .expect(200)
                 .end(function (err, res) {
                     var body = res.body;
@@ -204,8 +210,6 @@ describe('data controller and db', function(){
                     done();
                 });
         });
-
-
 
         it.skip('getCategory by id', function(done) {
 
@@ -217,10 +221,12 @@ describe('data controller and db', function(){
                 .expect(200)
                 .end(function (err, res) {
                    var curBody = res.body[0];
+                   console.log(curBody.name +' == mocha_curricula' + JSON.stringify(curBody));
                    curBody.name.should.equal('mocha_curricula');
+
                    request(url)
-                        .get('/api/category')
-                        .send({curricula : curBody._id})
+                        .get('/api/category/cur_id='+ curBody._id)
+                        .send()
                         .expect(200)
                         .end(function (err, res) {
                             var body = res.body;
@@ -232,8 +238,15 @@ describe('data controller and db', function(){
                })
         })
 
-        it('addCard to mocha category', function(done) { // to refactor with category
+        // edit category
 
+        // delete category
+
+    });
+
+    describe('card data CRUD', function() {
+
+        it('addCard to mocha category', function(done) { // to refactor with category
             request(url)
                 .get('/api/categoriesList')
                 .expect(200)
@@ -303,6 +316,10 @@ describe('data controller and db', function(){
 
         // get card by Id
 
+        // edit card
+
+        // delete card
+
         it.skip('empty test stub getCard', function(done) {
             request(url)
                 .get('/api/card')
@@ -315,33 +332,24 @@ describe('data controller and db', function(){
     });
 
 
-    describe.skip('editing and deleting data', function() {
-        it('empty test stub delete card')
-
-        it('empty test stub delete category with content')
-
-        it('empty test stub dont delete category with content')
-
-        it('empty test delete empty Curricula')
-
-        it('empty test stub delete Curricula with content')
-
-        it('empty test stub dont delete Curricula with content')
-
-        it('empty test delete empty category')
-    });
 
     describe.skip('card stash tests', function() {
 
+        it.skip('empty test stub', function(done) {
+            request(url)
+                .get('/api/')
+                .end(function (err, res) {
+                    // res.text.should.eql('helth chack');
+                    done();
+                });
+        });
     });
 
-    it.skip('empty test stub', function(done) {
-        request(url)
-            .get('/api/')
-            .end(function (err, res) {
-                // res.text.should.eql('helth chack');
-                done();
-            });
+    describe.skip('Autabtication tests', function() {
+
+        // admin permissions vs user
     });
+
+
 
 })

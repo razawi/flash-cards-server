@@ -81,6 +81,7 @@ function deleteCategory(body, res){
 }
 
 
+
 function getCategory (body, res){
 	if (body._id){
 		var oid = mongoose.Types.ObjectId(body._id)
@@ -100,14 +101,14 @@ function getCategory (body, res){
 			}
 		})
 	}
-	else if (body.name){
-		category.find({"name": body.name }, function(err, car){
-			if (err) {res.json(err)}
-			else{
-				res.json( car);
-			}
-		})
-	}
+	// else if (body.name){
+	// 	category.find({"name": body.name }, function(err, car){
+	// 		if (err) {res.json(err)}
+	// 		else{
+	// 			res.json( car);
+	// 		}
+	// 	})
+	// }
 	else
 		res.send(400, 'no body or _id');
 }
@@ -212,6 +213,7 @@ function cardsById(res, id){
 		if (err) {res.json(err)}
 		else{
 			res.json( car);
+			
 		}
 	})
 }
@@ -224,9 +226,20 @@ function cardsByCategoryId(id, res){
 
 	try{
 		card.find({"subcategory._id": oid }, function(err, car){
-			if (err) {res.json(err)}
+			if (err) { res.send(400, 'category not found');}
 			else{
-				res.json( car);
+				res.send(200,  car);
+			}
+		})
+	} catch(x){}
+}
+
+function catByCategoryName(name, res){
+	try{
+		category.find({"name": name }, function(err, car){
+			if (err) { res.send(400, 'category not found');}
+			else{
+				res.send(200,  car);
 			}
 		})
 	} catch(x){}
@@ -261,6 +274,7 @@ exports.addCard = addCard;
 exports.deleteCard = deleteCard;
 exports.getCard = getCard; // todo - reduce and remove
 exports.getCardById = getCardById;
+exports.catByCategoryName = catByCategoryName;
 
 exports.addCategory = addCategory;
 exports.deleteCategory = deleteCategory;

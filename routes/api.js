@@ -45,6 +45,13 @@ router.route('/category')
         if (req.query.id){
             mongodata.cardsByCategoryId(req.query.id, res);
         }
+        else if(req.query.name){
+            mongodata.catByCategoryName(req.query.name, res);
+        }
+        else if (req.query.cur_id){
+            mongodata.getCategoriesByCurriculaId(req.query.cur_id, res);
+        }
+        // else error
     });
 
 
