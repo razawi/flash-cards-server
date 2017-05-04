@@ -35,14 +35,13 @@ var cardSchema = new Schema({
   name: String,
   category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
   facess : [{
-  		    ordernum : Number,
-  		    symbol : String, //"subcategory_id.symbol",
-			text : String,
-			sound : Boolean,
-			previewDisplay : Boolean
-  		  }]
+    ordernum : Number,
+    symbol : String, //"subcategory_id.symbol",
+		text : String,
+		sound : Boolean,
+		previewDisplay : Boolean
+  }]
 });
-
 
 // Card decks
 

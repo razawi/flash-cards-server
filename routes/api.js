@@ -52,13 +52,7 @@ router.route('/category')
             mongodata.getCategoriesByCurriculaId(req.query.cur_id, res);
         }
         // else error
-    });
-
-
-router.route('/cardsList')
-    .get(function(req, res){
-        mongodata.cardsList(res);
-    })    
+    }); 
 
 router.route('/curricula')
     .put(function(req, res) {
