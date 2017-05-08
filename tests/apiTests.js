@@ -52,6 +52,8 @@ describe('data controller and db', function(){
     });
 
     describe('curricula data CRUD', function() {
+        this.timeout(50000);
+
         it('addCurricula to db', function(done) {
             var newcurricula = {
                 name: "mocha_curricula",
@@ -135,7 +137,7 @@ describe('data controller and db', function(){
         });
 
         // get list of curricula's
-        it('addCategory to mocha Curricula', function(done) {
+        it('get list of Curricula\'s', function(done) {
             console.log('// get list of curriculas');
             request(url)
                 .get('/api/curriculaList')
@@ -147,13 +149,37 @@ describe('data controller and db', function(){
                 });
         });
 
+        // todo : get curricula by Id
+
         // edit curricula
+        it('edit Curricula', function(done) {
+            setTimeout(done, 30000);
+            console.log('// get list of curriculas');
+            request(url)
+                .get('/api/curriculaList')
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    var cur = res.body[0];
+                    cur.admins = "raz";
+                    cur.facess[0].text = "edited Transcript mocha face";
+                    request(url)
+                        .post('/api/curricula')
+                        .send(cur)
+                        .expect(200)
+                        .end(function (err, res) {
+                            // get altered curricula by id and check changes
+                            should.not.exist(err)
+                            done();
+                        });
+                });
+        });
 
         // delete curricula
 
     });
 
-    describe('category data CRUD', function() {
+    describe.skip('category data CRUD', function() {
 
         it('addCategory to mocha Curricula', function(done) {
             request(url)
@@ -256,7 +282,7 @@ describe('data controller and db', function(){
 
     });
 
-    describe('card data CRUD', function() {
+    describe.skip('card data CRUD', function() {
 
         it('addCard to mocha category', function(done) { // to refactor with category
             request(url)

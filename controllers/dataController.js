@@ -124,13 +124,16 @@ function addCurricula(body, res){
 }
 
 function updateCurricula(body, res) {
-
-	// var cur = body;
-	// cur._id = cur.id || 2; //ugly hack #165
-	// //debugger;
-	// res.status(200).send('Curricula update stub');
-	
-
+	curricula.update({_id: body._id}, {
+			admins: body.admins,
+			facess: body.facess,
+			name: body.name
+		}, function(err, numAffected) {
+			if (err) 
+				res.send(400, 'Curricula not edited');
+			else
+				res.status(200).send('Curricula added');
+	});
 }
 
 // delete curricula (only empty) byId

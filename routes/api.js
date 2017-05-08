@@ -59,7 +59,8 @@ router.route('/curricula')
         mongodata.addCurricula(req.body, res);
     })
     .post(function(req, res) {
-        res.send(200);
+         mongodata.updateCurricula(req.body, res);
+        // res.send(200);
     })
     .delete(function(req, res) {
         mongodata.deleteCurricula(req.body, res);
