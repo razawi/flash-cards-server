@@ -1,5 +1,4 @@
 'use strict';
-
 var should = require('should')
 var request =require('supertest')
 var mongoose = require('mongoose');
@@ -20,7 +19,6 @@ describe('data controller and db', function(){
     })
 
     beforeEach(function(done){
-        //dbFlush
         done()
     })
 
@@ -52,7 +50,6 @@ describe('data controller and db', function(){
     });
 
     describe('curricula data CRUD', function() {
-        this.timeout(50000);
 
         it('addCurricula to db', function(done) {
             var newcurricula = {
@@ -136,9 +133,7 @@ describe('data controller and db', function(){
                 });
         });
 
-        // get list of curricula's
         it('get list of Curricula\'s', function(done) {
-            console.log('// get list of curriculas');
             request(url)
                 .get('/api/curriculaList')
                 .expect(200)
@@ -149,11 +144,7 @@ describe('data controller and db', function(){
                 });
         });
 
-        // TODO : get curricula by Id
-
-        // edit curricula
         it('edit Curricula', function(done) {
-            console.log('// get list of curriculas');
             request(url)
                 .get('/api/curriculaList')
                 .expect(200)
@@ -167,7 +158,6 @@ describe('data controller and db', function(){
                         .send(cur)
                         .expect(200)
                         .end(function (err, res) {
-                            // TODO get altered curricula by id and check changes
                             should.not.exist(err)
                             request(url)
                                 .get('/api/curricula/' + cur._id)
@@ -182,10 +172,7 @@ describe('data controller and db', function(){
                 });
         });
 
-        // delete curricula
         it('delete Curricula', function(done) {
-            setTimeout(done,5000);
-            console.log('// get list of curriculas');
             request(url)
                 .get('/api/curriculaList')
                 .expect(200)
@@ -196,7 +183,6 @@ describe('data controller and db', function(){
                         .delete('/api/curricula/' +cur._id)
                         .expect(200)
                         .end(function (err, res) {
-                            // TODO get altered curricula by id and check changes
                             should.not.exist(err)
                             request(url)
                                 .get('/api/curriculaList')
@@ -209,10 +195,10 @@ describe('data controller and db', function(){
                         });
                 });
         });
-
     });
 
-    describe.skip('category data CRUD', function() {
+    describe('category data CRUD', function() {
+        this.timeout(50000);
 
         it('addCategory to mocha Curricula', function(done) {
             request(url)
@@ -220,7 +206,8 @@ describe('data controller and db', function(){
                 .expect(200)
                 .end(function (err, res) {
                     var curBody = res.body[0];
-                    curBody.name.should.equal('mocha_curricula');
+                    curBody.name.should.equal('second mocha Curricula');
+
 
                     var newcategory = {
                         curricula: curBody._id,
@@ -264,8 +251,71 @@ describe('data controller and db', function(){
                 });
         });
 
+        it.skip('getCategory by id', function(done) {
+
+        });
+
+        // edit category
+        it.skip('edit category', function(done) {
+            request(url)
+                .get('/api/categoriesList')
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    var cat = res.body[0];
+                    cat.name = "edited mocha_category"
+                    cat.facess[0].text = "edited mocha trans-face";
+                    request(url)
+                        .post('/api/category')
+                        .send(cat)
+                        .expect(200)
+                        .end(function (err, res) {
+                            should.not.exist(err)
+                            request(url)
+                                .get('/api/category/' + cat._id)
+                                .expect(200)
+                                .end(function (err, res) {
+                                    should.not.exist(err)
+                                    res.body[0].name.should.equal('edited mocha_category');
+                                    res.body[0].facess[0].text.should.equal("edited mocha trans-face");
+                                    done();
+                                })
+                        });
+                });
+        });
+
+
+        // delete category
+        // it('delete Curricula', function(done) {
+        //     request(url)
+        //         .get('/api/curriculaList')
+        //         .expect(200)
+        //         .end(function (err, res) {
+        //             should.not.exist(err)
+        //             var cur = res.body[0];
+        //             request(url)
+        //                 .delete('/api/curricula/' +cur._id)
+        //                 .expect(200)
+        //                 .end(function (err, res) {
+        //                     should.not.exist(err)
+        //                     request(url)
+        //                         .get('/api/curriculaList')
+        //                         .expect(200)
+        //                         .end(function (err, res) {
+        //                             should.not.exist(err)
+        //                             res.body.length.should.equal(1);
+        //                             done();
+        //                         });
+        //                 });
+        //         });
+        // });
+
+        it.skip('getCategory by id', function(done) {
+
+        });
+
         // fail
-        it('getCategory by name', function(done) {
+        it.skip('getCategory by name and curic_id', function(done) {
             var name
 
             request(url)
@@ -281,12 +331,8 @@ describe('data controller and db', function(){
                 });
         });
 
-        it.skip('getCategory by id', function(done) {
-
-        });
-
         // fail
-        it.skip('getCategories by curricula id', function(done) {
+        it.skip('list Categories by curricula id', function(done) {
             request(url)
                 .get('/api/curriculaList')
                 .expect(200)
@@ -308,10 +354,6 @@ describe('data controller and db', function(){
                         });
                })
         })
-
-        // edit category
-
-        // delete category
 
     });
 
@@ -366,6 +408,68 @@ describe('data controller and db', function(){
                 });
         });
 
+
+        // get card by Id
+
+        // edit card
+
+        // it('edit Curricula', function(done) {
+        //     request(url)
+        //         .get('/api/curriculaList')
+        //         .expect(200)
+        //         .end(function (err, res) {
+        //             should.not.exist(err)
+        //             var cur = res.body[0];
+        //             cur.admins = "raz";
+        //             cur.facess[0].text = "edited Transcript mocha face";
+        //             request(url)
+        //                 .post('/api/curricula')
+        //                 .send(cur)
+        //                 .expect(200)
+        //                 .end(function (err, res) {
+        //                     should.not.exist(err)
+        //                     request(url)
+        //                         .get('/api/curricula/' + cur._id)
+        //                         .expect(200)
+        //                         .end(function (err, res) {
+        //                             should.not.exist(err)
+        //                             res.body[0].admins.should.equal('raz');
+        //                             res.body[0].facess[0].text.should.equal("edited Transcript mocha face");
+        //                             done();
+        //                         })
+        //                 });
+        //         });
+        // });
+
+
+
+        // delete card
+
+        // it('delete Curricula', function(done) {
+        //     request(url)
+        //         .get('/api/curriculaList')
+        //         .expect(200)
+        //         .end(function (err, res) {
+        //             should.not.exist(err)
+        //             var cur = res.body[0];
+        //             request(url)
+        //                 .delete('/api/curricula/' +cur._id)
+        //                 .expect(200)
+        //                 .end(function (err, res) {
+        //                     should.not.exist(err)
+        //                     request(url)
+        //                         .get('/api/curriculaList')
+        //                         .expect(200)
+        //                         .end(function (err, res) {
+        //                             should.not.exist(err)
+        //                             res.body.length.should.equal(1);
+        //                             done();
+        //                         });
+        //                 });
+        //         });
+        // });
+
+
         // fail
         it.skip('get cards by category', function(done) {
             request(url)
@@ -386,23 +490,9 @@ describe('data controller and db', function(){
                 });
         });
 
-        // get card by Id
+        // get card by name and category id
 
-        // edit card
-
-        // delete card
-
-        it.skip('empty test stub getCard', function(done) {
-            request(url)
-                .get('/api/card')
-                .expect(200)
-                .end(function (err, res) {
-                    // res.text.should.eql('helth chack');
-                    done();
-                });
-        });
     });
-
 
 
     describe.skip('card stash tests', function() {

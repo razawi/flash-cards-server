@@ -75,9 +75,43 @@ function addCategory(body, res){
 	})
 }
 
+function getCategoryById(body, res) {
+	try{
+		var oid = mongoose.Types.ObjectId(body._id)
+		category.find({"_id": body._id }, function(err, car){
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+	} catch(x){
+		res.status(400).send('mongo db category exception');
+	}
+}
+
+function updateCategory(body, res) {
+	category.update({_id: body._id}, {
+			curricula: body.curricula,
+			facess: body.facess,
+			name: body.name,
+			symbol: body.symbol
+		}, function(err, numAffected) {
+			if (err) 
+				res.send(400, 'category not edited');
+			else
+				res.status(200).send('category updated');
+	});
+}
+
 // delete category (only empty) byId
-function deleteCategory(body, res){
-	res.send(200, 'dataController Mock')
+function deleteCategory(id, res){
+	debugger;
+	category.remove({ _id: id }, function(err) {
+			if (err) 
+				res.send(400, 'category not deleted');
+			else
+				res.status(200).send('category deleted');
+	});
 }
 
 function getCategory (body, res){
@@ -121,7 +155,7 @@ function addCurricula(body, res){
 	})
 }
 
-function getCurriculById(id, res){
+function getCurriculaById(id, res){
 	try{
 		//todo - get the categories with curricula Id
 		curricula.find({}, function(err, curic){
@@ -144,7 +178,7 @@ function updateCurricula(body, res) {
 			if (err) 
 				res.send(400, 'Curricula not edited');
 			else
-				res.status(200).send('Curricula added');
+				res.status(200).send('Curricula edited');
 	});
 }
 
@@ -201,11 +235,9 @@ function curriculasList(res){
 	});
 }
 
-// get cards by Subcategory
 
 // get all categorys
 function categoriesList(res){
-
 	category.find({}, function(err, categ){
 		if (err) {res.json(err)}
 		else{
@@ -302,11 +334,13 @@ exports.catByCategoryName = catByCategoryName;
 exports.addCategory = addCategory;
 exports.deleteCategory = deleteCategory;
 exports.getCategory = getCategory
+exports.updateCategory = updateCategory;
+exports.getCategoryById = getCategoryById
 
 exports.updateCurricula = updateCurricula;
 exports.addCurricula = addCurricula;
 exports.deleteCurricula = deleteCurricula;
-exports.getCurriculById = getCurriculById;
+exports.getCurriculaById = getCurriculaById;
 
 // exports.getCurricula = getCurricula;
-exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;
+// exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;

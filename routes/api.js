@@ -36,7 +36,7 @@ router.route('/category')
         mongodata.addCategory(req.body, res);
     })
     .post(function(req, res) {
-        res.send(200);
+         mongodata.updateCategory(req.body, res);
     })
     .delete(function(req, res) {
         mongodata.deleteCategory(req.body, res);
@@ -53,6 +53,14 @@ router.route('/category')
         }
         // else error
     }); 
+
+router.route('/category/:id')
+    .get(function(req, res) {
+        mongodata.getCategoryById(req.params.id, res);
+    })
+    .delete(function(req, res) {
+        mongodata.deleteCurricula(req.params.id, res);
+    })
 
 
 router.route('/curricula')
@@ -71,7 +79,7 @@ router.route('/curricula')
 
 router.route('/curricula/:id')
     .get(function(req, res) {
-        mongodata.getCurriculById(req.params.id, res);
+        mongodata.getCurriculaById(req.params.id, res);
     })
     .delete(function(req, res) {
         mongodata.deleteCurricula(req.params.id, res);
