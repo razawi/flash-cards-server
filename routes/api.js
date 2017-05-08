@@ -54,6 +54,7 @@ router.route('/category')
         // else error
     }); 
 
+
 router.route('/curricula')
     .put(function(req, res) {
         mongodata.addCurricula(req.body, res);
@@ -69,6 +70,9 @@ router.route('/curricula')
     });
 
 router.route('/curricula/:id')
+    .get(function(req, res) {
+        mongodata.getCurriculById(req.params.id, res);
+    })
     .delete(function(req, res) {
         mongodata.deleteCurricula(req.params.id, res);
     })

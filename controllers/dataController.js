@@ -80,8 +80,6 @@ function deleteCategory(body, res){
 	res.send(200, 'dataController Mock')
 }
 
-
-
 function getCategory (body, res){
 	if (body._id){
 		var oid = mongoose.Types.ObjectId(body._id)
@@ -121,6 +119,20 @@ function addCurricula(body, res){
 		else
 			res.status(200).send('Curricula added');
 	})
+}
+
+function getCurriculById(id, res){
+	try{
+		//todo - get the categories with curricula Id
+		curricula.find({}, function(err, curic){
+			if (err)
+				res.send(400, 'Curricula not found');
+			else
+				res.status(200).send(curic);
+		})
+	} catch(x){
+		res.status(400).send('mongo db curricula exception');
+	}
 }
 
 function updateCurricula(body, res) {
@@ -173,8 +185,6 @@ function getCurricula (body, res){
 	}
 	else
 		res.send(400, 'no name and id')
-
-	// res.send(200, 'dataController Mock')
 }
 
 
@@ -296,5 +306,7 @@ exports.getCategory = getCategory
 exports.updateCurricula = updateCurricula;
 exports.addCurricula = addCurricula;
 exports.deleteCurricula = deleteCurricula;
+exports.getCurriculById = getCurriculById;
+
 // exports.getCurricula = getCurricula;
 exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;

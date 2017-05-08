@@ -144,7 +144,7 @@ describe('data controller and db', function(){
                 .expect(200)
                 .end(function (err, res) {
                     should.not.exist(err)
-                    debugger;
+                    res.body.length.should.equal(2);
                     done();
                 });
         });
@@ -169,7 +169,15 @@ describe('data controller and db', function(){
                         .end(function (err, res) {
                             // TODO get altered curricula by id and check changes
                             should.not.exist(err)
-                            done();
+                            request(url)
+                                .get('/api/curricula/' + cur._id)
+                                .expect(200)
+                                .end(function (err, res) {
+                                    should.not.exist(err)
+                                    res.body[0].admins.should.equal('raz');
+                                    res.body[0].facess[0].text.should.equal("edited Transcript mocha face");
+                                    done();
+                                })
                         });
                 });
         });
@@ -190,7 +198,14 @@ describe('data controller and db', function(){
                         .end(function (err, res) {
                             // TODO get altered curricula by id and check changes
                             should.not.exist(err)
-                            done();
+                            request(url)
+                                .get('/api/curriculaList')
+                                .expect(200)
+                                .end(function (err, res) {
+                                    should.not.exist(err)
+                                    res.body.length.should.equal(1);
+                                    done();
+                                });
                         });
                 });
         });
