@@ -149,11 +149,10 @@ describe('data controller and db', function(){
                 });
         });
 
-        // todo : get curricula by Id
+        // TODO : get curricula by Id
 
         // edit curricula
         it('edit Curricula', function(done) {
-            setTimeout(done, 30000);
             console.log('// get list of curriculas');
             request(url)
                 .get('/api/curriculaList')
@@ -168,7 +167,7 @@ describe('data controller and db', function(){
                         .send(cur)
                         .expect(200)
                         .end(function (err, res) {
-                            // get altered curricula by id and check changes
+                            // TODO get altered curricula by id and check changes
                             should.not.exist(err)
                             done();
                         });
@@ -176,6 +175,25 @@ describe('data controller and db', function(){
         });
 
         // delete curricula
+        it('delete Curricula', function(done) {
+            setTimeout(done,5000);
+            console.log('// get list of curriculas');
+            request(url)
+                .get('/api/curriculaList')
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    var cur = res.body[0];
+                    request(url)
+                        .delete('/api/curricula/' +cur._id)
+                        .expect(200)
+                        .end(function (err, res) {
+                            // TODO get altered curricula by id and check changes
+                            should.not.exist(err)
+                            done();
+                        });
+                });
+        });
 
     });
 

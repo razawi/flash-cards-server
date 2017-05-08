@@ -62,14 +62,16 @@ router.route('/curricula')
          mongodata.updateCurricula(req.body, res);
         // res.send(200);
     })
-    .delete(function(req, res) {
-        mongodata.deleteCurricula(req.body, res);
-    })
     .get(function(req, res) {
         if (req.query.id){
             mongodata.getCategoriesByCurriculaId(req.query.id, res);
         }
     });
+
+router.route('/curricula/:id')
+    .delete(function(req, res) {
+        mongodata.deleteCurricula(req.params.id, res);
+    })
 
 
 

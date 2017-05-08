@@ -137,9 +137,13 @@ function updateCurricula(body, res) {
 }
 
 // delete curricula (only empty) byId
-function deleteCurricula(body, res){
-
-	res.send(200, 'dataController Mock')
+function deleteCurricula(id, res){
+	curricula.remove({ _id: id }, function(err) {
+			if (err) 
+				res.send(400, 'Curricula not deleted');
+			else
+				res.status(200).send('Curricula deleted');
+	});
 }
 
 
