@@ -15,7 +15,7 @@ function addCard(body, res){
 		if (err)
 			res.send(400, 'card not added');
 		else
-			res.send(200, 'card added');
+			res.status(200).send('card added');
 	})
 }
 
@@ -71,7 +71,7 @@ function addCategory(body, res){
 		if (err)
 			res.send(400, 'Category not added');
 		else
-			res.send(200, 'Category added');
+			res.status(200).send('Category added');
 	})
 }
 
@@ -124,6 +124,11 @@ function addCurricula(body, res){
 }
 
 function updateCurricula(body, res) {
+
+	// var cur = body;
+	// cur._id = cur.id || 2; //ugly hack #165
+	// //debugger;
+	// res.status(200).send('Curricula update stub');
 	
 
 }
@@ -228,7 +233,7 @@ function cardsByCategoryId(id, res){
 		card.find({"subcategory._id": oid }, function(err, car){
 			if (err) { res.send(400, 'category not found');}
 			else{
-				res.send(200,  car);
+				res.status(200).send(car);
 			}
 		})
 	} catch(x){}
@@ -239,7 +244,8 @@ function catByCategoryName(name, res){
 		category.find({"name": name }, function(err, car){
 			if (err) { res.send(400, 'category not found');}
 			else{
-				res.send(200,  car);
+				res.status(200).send(car);
+				//res.send(200,  car);
 			}
 		})
 	} catch(x){}
@@ -280,6 +286,7 @@ exports.addCategory = addCategory;
 exports.deleteCategory = deleteCategory;
 exports.getCategory = getCategory
 
+exports.updateCurricula = updateCurricula;
 exports.addCurricula = addCurricula;
 exports.deleteCurricula = deleteCurricula;
 // exports.getCurricula = getCurricula;
