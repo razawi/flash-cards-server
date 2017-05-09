@@ -19,7 +19,7 @@ router.route('/card')
         mongodata.addCard(req.body, res);
 	})
     .post(function(req, res) {
-        res.send(200);
+        mongodata.updateCard(req.body, res);
     })
     .delete(function(req, res) {
         mongodata.deleteCard(req.body, res);
@@ -30,6 +30,14 @@ router.route('/card')
         }
         // mongodata.getCard(req.body, res);
     });
+
+    router.route('/card/:id')
+        .get(function(req, res) {
+            mongodata.getCardById(req.params.id, res);
+        })
+        .delete(function(req, res) {
+            mongodata.deleteCard(req.params.id, res);
+        })
 
 router.route('/category')
     .put(function(req, res) {

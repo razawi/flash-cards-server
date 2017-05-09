@@ -13,30 +13,48 @@ var face = {};
 function addCard(body, res){
 	card.create(body, function (err, cur) {
 		if (err)
-			res.send(400, 'card not added');
+			res.status(400).send('card not added');
 		else
 			res.status(200).send('card added');
 	})
 }
 
 // delete card byId
-function deleteCard(body, res){
-	res.send(200, 'dataController Mock')
+function deleteCard(id, res){
+	card.remove({ _id: id }, function(err) {
+			if (err) 
+				res.send(400, 'category not deleted');
+			else
+				res.status(200).send('category deleted');
+	});
 }
 
 function getCardById (id, res){
 	try{
-		var oid = mongoose.Types.ObjectId(id)
+		// var oid = mongoose.Types.ObjectId(id)
 
-		card.find({"_id": oid }, function(err, car){
-			if (err) {res.json(err)}
+		card.find({"_id": id }, function(err, car){
+			if (err) res.status(400).send(err);
 			else{
-				res.json( car);
+				res.status(200).send(car);
 			}
 		})
 	} catch(x){
 		res.status(400).send('no body or _id');
 	}
+}
+
+function updateCard(body, res) {
+	card.update({_id: body._id}, {
+			category: body.category,
+			facess: body.facess,
+			name: body.name
+		}, function(err, numAffected) {
+			if (err) 
+				res.send(400, 'Curricula not edited');
+			else
+				res.status(200).send('Curricula edited');
+	});
 }
 
 // deprecate
@@ -329,6 +347,7 @@ exports.deleteCard = deleteCard;
 exports.getCard = getCard; // todo - reduce and remove
 exports.getCardById = getCardById;
 exports.catByCategoryName = catByCategoryName;
+exports.updateCard = updateCard;
 
 exports.addCategory = addCategory;
 exports.deleteCategory = deleteCategory;
