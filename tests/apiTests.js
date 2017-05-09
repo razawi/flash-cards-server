@@ -251,8 +251,23 @@ describe('data controller and db', function(){
                 });
         });
 
-        it.skip('getCategory by id', function(done) {
+        it('getCategory by id', function(done) {
 
+            // get all categories
+            request(url)
+                .get('/api/categoriesList')
+                .expect(200)
+                .end(function (err, res) {
+                    var cat = res.body[0];
+                    request(url)
+                        .get('/api/category/' + cat._id)
+                        .expect(200)
+                        .end(function (err, res) {
+                            var idcateg = res.body[0]
+                            idcateg._id.should.equal(cat._id);
+                            done();
+                        });
+                });
         });
 
         // edit category
@@ -309,10 +324,6 @@ describe('data controller and db', function(){
         //                 });
         //         });
         // });
-
-        it.skip('getCategory by id', function(done) {
-
-        });
 
         // fail
         it.skip('getCategory by name and curic_id', function(done) {

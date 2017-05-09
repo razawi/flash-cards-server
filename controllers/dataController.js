@@ -75,13 +75,13 @@ function addCategory(body, res){
 	})
 }
 
-function getCategoryById(body, res) {
+function getCategoryById(id, res) {
 	try{
-		var oid = mongoose.Types.ObjectId(body._id)
-		category.find({"_id": body._id }, function(err, car){
-			if (err) {res.json(err)}
+		// var oid = mongoose.Types.ObjectId(id)
+		category.find({"_id": id }, function(err, car){
+			if (err) res.status(400).send(err);
 			else{
-				res.json( car);
+				res.status(200).send(car);
 			}
 		})
 	} catch(x){
@@ -105,7 +105,6 @@ function updateCategory(body, res) {
 
 // delete category (only empty) byId
 function deleteCategory(id, res){
-	debugger;
 	category.remove({ _id: id }, function(err) {
 			if (err) 
 				res.send(400, 'category not deleted');
