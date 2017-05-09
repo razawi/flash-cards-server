@@ -59,7 +59,7 @@ router.route('/category/:id')
         mongodata.getCategoryById(req.params.id, res);
     })
     .delete(function(req, res) {
-        mongodata.deleteCurricula(req.params.id, res);
+        mongodata.deleteCategory(req.params.id, res);
     })
 
 

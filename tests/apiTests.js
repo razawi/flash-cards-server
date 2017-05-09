@@ -252,8 +252,6 @@ describe('data controller and db', function(){
         });
 
         it('getCategory by id', function(done) {
-
-            // get all categories
             request(url)
                 .get('/api/categoriesList')
                 .expect(200)
@@ -270,8 +268,7 @@ describe('data controller and db', function(){
                 });
         });
 
-        // edit category
-        it.skip('edit category', function(done) {
+        it('edit category', function(done) {
             request(url)
                 .get('/api/categoriesList')
                 .expect(200)
@@ -300,30 +297,30 @@ describe('data controller and db', function(){
         });
 
 
-        // delete category
-        // it('delete Curricula', function(done) {
-        //     request(url)
-        //         .get('/api/curriculaList')
-        //         .expect(200)
-        //         .end(function (err, res) {
-        //             should.not.exist(err)
-        //             var cur = res.body[0];
-        //             request(url)
-        //                 .delete('/api/curricula/' +cur._id)
-        //                 .expect(200)
-        //                 .end(function (err, res) {
-        //                     should.not.exist(err)
-        //                     request(url)
-        //                         .get('/api/curriculaList')
-        //                         .expect(200)
-        //                         .end(function (err, res) {
-        //                             should.not.exist(err)
-        //                             res.body.length.should.equal(1);
-        //                             done();
-        //                         });
-        //                 });
-        //         });
-        // });
+        // delete category - raz is here
+        it('delete Curricula', function(done) {
+            request(url)
+                .get('/api/categoriesList')
+                .expect(200)
+                .end(function (err, res) {
+                    should.not.exist(err)
+                    var cat = res.body[0];
+                    request(url)
+                        .delete('/api/category/' +cat._id)
+                        .expect(200)
+                        .end(function (err, res) {
+                            should.not.exist(err)
+                            request(url)
+                                .get('/api/categoriesList')
+                                .expect(200)
+                                .end(function (err, res) {
+                                    should.not.exist(err)
+                                    res.body.length.should.equal(0);
+                                    done();
+                                });
+                        });
+                });
+        });
 
         // fail
         it.skip('getCategory by name and curic_id', function(done) {
