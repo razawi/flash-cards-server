@@ -375,7 +375,6 @@ describe('data controller and db', function(){
                     var curBody = res.body[0];
                     curBody.name.should.equal('second mocha Curricula');
 
-
                     var newcategory = {
                         curricula: curBody._id,
                         symbol: "mocha category",
@@ -537,6 +536,8 @@ describe('data controller and db', function(){
         });
 
 
+        // get card by name and category id
+
         // fail
         // it.skip('get cards by category', function(done) {
         //     request(url)
@@ -557,10 +558,55 @@ describe('data controller and db', function(){
         //         });
         // });
 
+        it('addCard to mocha category', function(done) { // to refactor with category
+            request(url)
+                .get('/api/categoriesList')
+                .expect(200)
+                .end(function (err, res) {
+                    var catBody = res.body[0];
+                    catBody.name.should.equal('mocha_category');
+
+                    var newCard1 = {
+                        name: "mocha_card_1",
+                        category: catBody._id,
+                        facess : [{
+                            ordernum : 0,
+                            symbol : "trans-card",
+                            text : "mocha card transcript",
+                            sound : false,
+                            previewDisplay : true
+                        },{
+                            ordernum : 1,
+                            symbol : "heb-card",
+                            text : "mocha card heb",
+                            sound : false,
+                            previewDisplay : true
+                        },{
+                            ordernum : 2,
+                            symbol : "eng-card",
+                            text : "mocha card eng",
+                            sound : false,
+                            previewDisplay : true
+                        },{
+                            ordernum : 0,
+                            symbol : "arb-card",
+                            text : "mocha card arb",
+                            sound : false,
+                            previewDisplay : true
+                        }]
+                    };
+
+                    request(url)
+                        .put('/api/card')
+                        .send(newCard1)
+                        .expect(200)
+                        .end(function (err, res) {
+                            should.not.exist(err)
+                            done();
+                        });
+                });
+        });
     });
-
-
-    // get card by name and category id
 
 
     describe.skip('card stash tests', function() {

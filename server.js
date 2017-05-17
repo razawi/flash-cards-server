@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
@@ -58,15 +59,15 @@ app.use(function(req, res, next) {
 // error handlers
 // development error handler
 // will print stacktrace
-// if (app.get('env') === 'development') {
-//  app.use(function(err, req, res, next) {
-//    res.status(err.status || 500);
-//    res.render('error', {
-//      message: err.message,
-//      error: err
-//    });
-//  });
-// }
+if (app.get('env') === 'development') {
+ app.use(function(err, req, res, next) {
+   res.status(err.status || 500);
+   res.render('error', {
+     message: err.message,
+     error: err
+   });
+ });
+}
 
 // //// production error handler
 // //// no stacktraces leaked to user
