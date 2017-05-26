@@ -50,6 +50,7 @@ router.route('/category')
         mongodata.deleteCategory(req.body, res);
     })
     .get(function(req, res) {
+        debugger;
         if (req.query.id){
             mongodata.cardsByCategoryId(req.query.id, res);
         }

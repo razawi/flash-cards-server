@@ -213,7 +213,7 @@ function deleteCurricula(id, res){
 function getCategoriesByCurriculaId(id, res){
 	try{
 		//todo - get the categories with curricula Id
-		category.find({}, function(err, categ){
+		category.find({curricula: mongoose.Types.ObjectId(id)}, function(err, categ){
 			if (err) {res.json(err)}
 			else{
 				res.json(categ);
@@ -361,4 +361,4 @@ exports.deleteCurricula = deleteCurricula;
 exports.getCurriculaById = getCurriculaById;
 
 // exports.getCurricula = getCurricula;
-// exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;
+exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;

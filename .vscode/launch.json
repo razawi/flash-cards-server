@@ -4,7 +4,18 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+   {
+        "type": "node",
+        "request": "launch",
+        "name": "UI mocha",
+        "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+        "args" : ["--no-timeouts", "${workspaceRoot}/tests/uiTests.js"],
+        "cwd": "${workspaceRoot}",
+        "runtimeExecutable": "/usr/local/bin/node",
+        "env": {
+            "NODE_ENV": "testing"
+        }
+    },
     {
         "type": "node",
         "request": "launch",
