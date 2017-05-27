@@ -28,6 +28,9 @@ router.route('/card')
         if (req.query.id){
             mongodata.getCardById(req.query.id, res);
         }
+        else if (req.query.category){
+            mongodata.getCardByCategoryId(req.query.category, res);
+        }
         // mongodata.getCard(req.body, res);
     });
 
@@ -50,7 +53,6 @@ router.route('/category')
         mongodata.deleteCategory(req.body, res);
     })
     .get(function(req, res) {
-        debugger;
         if (req.query.id){
             mongodata.cardsByCategoryId(req.query.id, res);
         }

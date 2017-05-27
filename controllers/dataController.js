@@ -57,6 +57,21 @@ function updateCard(body, res) {
 	});
 }
 
+function getCardByCategoryId (id, res){
+	try{
+		card.find({"category": mongoose.Types.ObjectId(id) }, function(err, car){	
+			if (err) {res.json(err)}
+			else{
+				res.json( car);
+			}
+		})
+
+	} catch(x){
+		res.status(400).send('no body or _id');
+	}
+	
+}
+
 // deprecate
 function getCard (body, res){
 	if (body.category) {
@@ -362,3 +377,4 @@ exports.getCurriculaById = getCurriculaById;
 
 // exports.getCurricula = getCurricula;
 exports.getCategoriesByCurriculaId = getCategoriesByCurriculaId;
+exports.getCardByCategoryId = getCardByCategoryId;
