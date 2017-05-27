@@ -286,30 +286,30 @@ describe('data controller and db', function(){
                     var catBody = res.body[0];
 
                     var newCard1 = {
-                        name: "mocha_card_1",
+                        name: "mocha_card_2",
                         category: catBody._id,
                         facess : [{
                             ordernum : 0,
                             symbol : "trans-card",
-                            text : "mocha card transcript",
+                            text : "2 mocha card transcript",
                             sound : false,
                             previewDisplay : true
                         },{
                             ordernum : 1,
                             symbol : "heb-card",
-                            text : "mocha card heb",
+                            text : "2 mocha card heb",
                             sound : false,
                             previewDisplay : true
                         },{
                             ordernum : 2,
                             symbol : "eng-card",
-                            text : "mocha card eng",
+                            text : "2 mocha card eng",
                             sound : false,
                             previewDisplay : true
                         },{
                             ordernum : 0,
                             symbol : "arb-card",
-                            text : "mocha card arb",
+                            text : "2 mocha card arb",
                             sound : false,
                             previewDisplay : true
                         }]
