@@ -1,69 +1,82 @@
-[{
-	"_id": "58537a2becdca6a87385c5bc",
-	"name": "mocha_debug",
-	"admins": "raz kronenberg",
-	"__v": 0,
-	"facess": [{
-		"ordernum": 0,
-		"symbol": "transcript-dbg",
-		"text": "Transcript mocha face",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5c0"
-	}, {
-		"ordernum": 1,
-		"symbol": "heb-dbg",
-		"text": "Hebrew mocha face",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5bf"
-	}, {
-		"ordernum": 2,
-		"symbol": "eng-dbg",
-		"text": "English mocha face",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5be"
-	}, {
-		"ordernum": 3,
-		"symbol": "arab-dbg",
-		"text": "Arabic mocha face",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5bd"
-	}]
-}, {
-	"_id": "58537a2becdca6a87385c5c1",
-	"name": "second mocha cur",
-	"admins": "raz kronenberg",
-	"__v": 0,
-	"facess": [{
-		"ordernum": 0,
-		"symbol": "transcript-dbg",
-		"text": "Transcript second mocha",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5c5"
-	}, {
-		"ordernum": 1,
-		"symbol": "heb-dbg",
-		"text": "Hebrew second mocha",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5c4"
-	}, {
-		"ordernum": 2,
-		"symbol": "eng-dbg",
-		"text": "English second mocha",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5c3"
-	}, {
-		"ordernum": 3,
-		"symbol": "arab-dbg",
-		"text": "Arabic second mocha",
-		"sound": false,
-		"previewDisplay": true,
-		"_id": "58537a2becdca6a87385c5c2"
-	}]
-}]
+[  
+   {  
+      "_id":"59295c00839991f4505f6522",
+      "name":"mocha_curricula",
+      "admins":"raz kronenberg",
+      "__v":0,
+      "facess":[  
+         {  
+            "ordernum":0,
+            "symbol":"transcript-dbg",
+            "text":"Transcript mocha face",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c00839991f4505f6526"
+         },
+         {  
+            "ordernum":1,
+            "symbol":"heb-dbg",
+            "text":"Hebrew mocha face",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c00839991f4505f6525"
+         },
+         {  
+            "ordernum":2,
+            "symbol":"eng-dbg",
+            "text":"English mocha face",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c00839991f4505f6524"
+         },
+         {  
+            "ordernum":3,
+            "symbol":"arab-dbg",
+            "text":"Arabic mocha face",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c00839991f4505f6523"
+         }
+      ]
+   },
+   {  
+      "_id":"59295c01839991f4505f6527",
+      "name":"second mocha Curricula",
+      "admins":"raz kronenberg",
+      "__v":0,
+      "facess":[  
+         {  
+            "ordernum":0,
+            "symbol":"transcript-dbg",
+            "text":"Transcript second mocha",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c01839991f4505f652b"
+         },
+         {  
+            "ordernum":1,
+            "symbol":"heb-dbg",
+            "text":"Hebrew second mocha",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c01839991f4505f652a"
+         },
+         {  
+            "ordernum":2,
+            "symbol":"eng-dbg",
+            "text":"English second mocha",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c01839991f4505f6529"
+         },
+         {  
+            "ordernum":3,
+            "symbol":"arab-dbg",
+            "text":"Arabic second mocha",
+            "sound":false,
+            "previewDisplay":true,
+            "_id":"59295c01839991f4505f6528"
+         }
+      ]
+   }
+]

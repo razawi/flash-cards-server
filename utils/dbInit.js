@@ -14,8 +14,6 @@ db.once('open', function (callback) {
 
 mongoose.connect(configDB.url);
 
-
-
 var fcards = require('../assets/arab-card.json');
 var fcategory = require('../assets/arab-category.json');
 var fcurricula = require('../assets/arab-curricula.json');
@@ -94,7 +92,7 @@ function saveNextCategory(){
         });
     } else{
         clearInterval(categoryInterval);
-        console.log('Categories Init done')
+        console.log('Categories Init done');
     }  
 }
 
@@ -107,7 +105,7 @@ function saveNextCuricula(){
         }); 
     } else{
         clearInterval(curriculaInterval);
-        console.log('Curriculas Init done')
+        console.log('Curriculas Init done');
     } 
 }
 

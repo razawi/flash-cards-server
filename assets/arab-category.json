@@ -1,378 +1,420 @@
-[{
-	"_id": "58427cb283421d13cc040c68",
-	"symbol": "בעלי חיים",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040c69",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-			"_id": "58427cb283421d13cc040b24",
-			"name": "ערבית מדוברת לדוברי עברית"
-		}
-
-	]
-}, {
-	"_id": "58427cb283421d13cc040b26",
-	"symbol": "אוכל",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040b27",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040d0c",
-	"symbol": "בשימוש בעברית",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040d0d",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040e3a",
-	"symbol": "זמן",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040e3b",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc041160",
-	"symbol": "מקצועות",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc041161",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040cc6",
-	"symbol": "ברכות",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040cc7",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040bc8",
-	"symbol": "בבית",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040bc9",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040d2e",
-	"symbol": "גוף האדם",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040d2f",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040c46",
-	"symbol": "בגדים",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040c47",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040d7c",
-	"symbol": "דתות וחגים",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040d7d",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc041452",
-	"symbol": "צמחים",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb383421d13cc041453",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040f9e",
-	"symbol": "מזג אוויר",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040f9f",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc0412c4",
-	"symbol": "פוליטיקה",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb383421d13cc0412c5",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc040f74",
-	"symbol": "כלכלה",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc040f75",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc04121e",
-	"symbol": "משפחה",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc04121f",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc0414f2",
-	"symbol": "ספורט",
-	"facess": [{
-		"_id": "58427cb383421d13cc0414f3",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc041008",
-	"symbol": "מספרים",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc041009",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc041342",
-	"symbol": "צבא ובטחון",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb383421d13cc041343",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc041464",
-	"symbol": "שאלות",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb383421d13cc041465",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc041530",
-	"symbol": "מילון מלא",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb383421d13cc041531",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb283421d13cc04107e",
-	"symbol": "מקומות",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb283421d13cc04107f",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-		"_id": "58427cb283421d13cc040b24",
-		"name": "ערבית מדוברת לדוברי עברית"
-	}]
-}, {
-	"_id": "58427cb383421d13cc041418",
-	"symbol": "צבעים",
-	"name": "",
-	"facess": [{
-		"_id": "58427cb383421d13cc041419",
-		"previewDisplay": false,
-		"sound": false,
-		"text": "TBD",
-		"symbol": "TBD",
-		"ordernum": 0
-	}],
-	"__v": 0,
-	"curricula": [{
-			"_id": "58427cb283421d13cc040b24",
-			"name": "ערבית מדוברת לדוברי עברית"
-		}
-
-	]
-}]
+[  
+   {  
+      "_id":"58427cb283421d13cc040c68",
+      "name":"בעלי חיים",
+      "symbol":"בעלי חיים",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040c69",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040b26",
+      "name":"אוכל",
+      "symbol":"אוכל",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040b27",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040d0c",
+      "name":"בשימוש בעברית",
+      "symbol":"בשימוש בעברית",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040d0d",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040e3a",
+      "name":"זמן",
+      "symbol":"זמן",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040e3b",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc041160",
+      "name":"מקצועות",
+      "symbol":"מקצועות",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc041161",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040cc6",
+      "name":"ברכות",
+      "symbol":"ברכות",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040cc7",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040bc8",
+      "name":"בבית",
+      "symbol":"בבית",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040bc9",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040d2e",
+      "name":"גוף האדם",
+      "symbol":"גוף האדם",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040d2f",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040c46",
+      "name":"בגדים",
+      "symbol":"בגדים",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040c47",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040d7c",
+      "name":"דתות וחגים",
+      "symbol":"דתות וחגים",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040d7d",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc041452",
+      "name":"צמחים",
+      "symbol":"צמחים",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc041453",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040f9e",
+      "name":"מזג אוויר",
+      "symbol":"מזג אוויר",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040f9f",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc0412c4",
+      "name":"פוליטיקה",
+      "symbol":"פוליטיקה",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc0412c5",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc040f74",
+      "name":"כלכלה",
+      "symbol":"כלכלה",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc040f75",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc04121e",
+      "name":"משפחה",
+      "symbol":"משפחה",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc04121f",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc0414f2",
+      "name":"ספורט",
+      "symbol":"ספורט",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc0414f3",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc041008",
+      "name":"מספרים",
+      "symbol":"מספרים",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc041009",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc041342",
+      "name":"צבא ובטחון",
+      "symbol":"צבא ובטחון",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc041343",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc041464",
+      "name":"שאלות",
+      "symbol":"שאלות",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc041465",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc041530",
+      "name":"מילון מלא",
+      "symbol":"מילון מלא",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc041531",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb283421d13cc04107e",
+      "name":"מקומות",
+      "symbol":"מקומות",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb283421d13cc04107f",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   },
+   {  
+      "_id":"58427cb383421d13cc041418",
+      "name":"צבעים",
+      "symbol":"צבעים",
+      "__v":0,
+      "facess":[  
+         {  
+            "_id":"58427cb383421d13cc041419",
+            "previewDisplay":false,
+            "sound":false,
+            "text":"TBD",
+            "symbol":"TBD",
+            "ordernum":0
+         }
+      ],
+      "curricula":[  
+         "58427cb283421d13cc040b24"
+      ]
+   }
+]
