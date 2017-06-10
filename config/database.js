@@ -5,4 +5,5 @@ module.exports = {
     'backup-url' : 'mongodb://localhost/cards',
     'to-reset-url' : 'mongodb://localhost/cards',
     'local-dev-url' : 'mongodb://localhost/cards',
+    'jwtSecret': 'fjkdlsajfoew239053/3uk'
 };

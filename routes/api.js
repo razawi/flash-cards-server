@@ -2,9 +2,57 @@ const express = require('express');
 const url = require('url');
 const co = require('co');
 const util = require('util');
+const configDB = require('../config/database');
 
 const mongodata = require('../controllers/dataController');
 const router = module.exports = express.Router();
+var jwt = require('jsonwebtoken');
+
+var user = {
+  username: 'raz',
+  password: 'raz'
+};
+
+// UTIL FUNCTIONS
+
+function authenticate(req, res, next) {
+  var body = req.body;
+  console.log('authanticating req\n');
+  if (!body.username || !body.password) {
+    console.log('Must provide username or password');
+    res.status(400).end('Must provide username or password');
+  } else if (body.username !== user.username || body.password !== user.password) {
+    console.log('Username or password incorrect');
+    res.status(401).end('Username or password incorrect');
+  } else {
+    console.log('next');
+    next();
+  }
+}
+
+
+router.post('/login', authenticate, function (req, res) {
+    var token = jwt.sign({
+        username: user.username
+    }, configDB.jwtSecret);
+    res.send({
+        token: token,
+        user: user
+    });
+});
+
+// var faker = require('faker');
+// router.get('/random-user', function (req, res) {
+//     var user = faker.Helpers.userCard();
+//     user.avatar = faker.Image.avatar();
+//     res.json(user);
+// });
+
+router.get('/me', function (req, res) {
+    res.send(req.user);
+});
+
+
 
 router.get('/health', co.wrap(function *(req, res) {
     return res.status(200).send('helth chack');
