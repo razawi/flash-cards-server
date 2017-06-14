@@ -41,13 +41,6 @@ router.post('/login', authenticate, function (req, res) {
     });
 });
 
-var faker = require('faker');
-router.get('/random-user', function (req, res) {
-    console.log('api/randomuser');
-    var user = faker.Helpers.userCard();
-    user.avatar = faker.Image.avatar();
-    res.json(user);
-});
 
 router.get('/me', function (req, res) {
     res.send(req.user);

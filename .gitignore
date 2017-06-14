@@ -15,4 +15,7 @@ tatus
 
 npm-debug.log
 node_modules
+reports
+.nyc_output
+coverage
 
