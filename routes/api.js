@@ -6,45 +6,45 @@ const configDB = require('../config/database');
 
 const mongodata = require('../controllers/dataController');
 const router = module.exports = express.Router();
-var jwt = require('jsonwebtoken');
+// var jwt = require('jsonwebtoken');
 
-var user = {
-  username: 'raz',
-  password: 'raz'
-};
+// var user = {
+//   username: 'raz',
+//   password: 'raz'
+// };
 
-// UTIL FUNCTIONS
+// // UTIL FUNCTIONS
 
-function authenticate(req, res, next) {
-  var body = req.body;
-  console.log('authanticating req\n');
-  if (!body.username || !body.password) {
-    console.log('Must provide username or password');
-    res.status(400).end('Must provide username or password');
-  } else if (body.username !== user.username || body.password !== user.password) {
-    console.log('Username or password incorrect');
-    res.status(401).end('Username or password incorrect');
-  } else {
-    console.log('next');
-    next();
-  }
-}
-
-
-router.post('/login', authenticate, function (req, res) {
-    var token = jwt.sign({
-        username: user.username
-    }, configDB.jwtSecret);
-    res.send({
-        token: token,
-        user: user
-    });
-});
+// function authenticate(req, res, next) {
+//   var body = req.body;
+//   console.log('authanticating req\n');
+//   if (!body.username || !body.password) {
+//     console.log('Must provide username or password');
+//     res.status(400).end('Must provide username or password');
+//   } else if (body.username !== user.username || body.password !== user.password) {
+//     console.log('Username or password incorrect');
+//     res.status(401).end('Username or password incorrect');
+//   } else {
+//     console.log('next');
+//     next();
+//   }
+// }
 
 
-router.get('/me', function (req, res) {
-    res.send(req.user);
-});
+// router.post('/login', authenticate, function (req, res) {
+//     var token = jwt.sign({
+//         username: user.username
+//     }, configDB.jwtSecret);
+//     res.send({
+//         token: token,
+//         user: user
+//     });
+// });
+
+
+// router.get('/me', function (req, res) {
+//     res.send(req.user);
+// });
 
 
 
