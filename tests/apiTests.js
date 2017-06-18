@@ -297,8 +297,6 @@ describe('data controller and db', function(){
                 });
         });
 
-
-        // delete category - raz is here
         it('delete Curricula', function(done) {
             request(url)
                 .get('/api/categoriesList')

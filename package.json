@@ -45,13 +45,13 @@
   },
   "nyc": {
     "check-coverage": true,
-    "lines": 99,
-    "statements": 99,
-    "functions": 99,
-    "branches": 99,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
     "reporter": [
       "html"
     ],
-    "report-dir": "./reports"
+    "report-dir": "./coverage/reports"
   }
 }
