@@ -36,10 +36,10 @@ cd flash-cards-server
 
 Install project dependencies
 ```
-npm install
+npm install && npm update && npm start
 ```
 
-Run tests by
+Run tests from a seperate terminal by
 ```
 mocha tests/apiTests.js
 ```
@@ -74,14 +74,17 @@ Feel free to whatever you want to do with it.
 this is kind of undocument so I'm writing it here
 
 to see the istanbul report
+
 `` cd project_directory``
 
 ``./node_modules/.bin/istanbul cover --handle-sigint  server.js``
 
 and from another prompt in the same directory run:
+
 ``mocha tests/apiTests.js``
 
 after the tests end, go back to the server prompt and stop it
+
 ``ctrl + c`` 
 
 results will be in the /coverage directory
