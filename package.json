@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "server and API",
   "main": "server.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "test": "mocha tests/apiTests.js"
   },
@@ -42,16 +39,5 @@
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "supertest": "~1.2.0"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 99,
-    "statements": 99,
-    "functions": 99,
-    "branches": 99,
-    "reporter": [
-      "html"
-    ],
-    "report-dir": "./reports"
   }
 }
